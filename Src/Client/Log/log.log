@@ -1,0 +1,19 @@
+2024-07-19 15:35:18,817 [ 1] INFO  Unity: LoadingManager start
+2024-07-19 15:35:39,291 [ 1] INFO  Unity: UserLoginRequest::user :123 psw:456
+2024-07-19 15:35:39,293 [ 1] INFO  Unity: ConnectToServer() Start
+2024-07-19 15:35:39,294 [ 1] INFO  Unity: DoConnect
+2024-07-19 15:35:39,295 [ 1] INFO  Unity: NetClient.DoConnect on 127.0.0.1:8000
+2024-07-19 15:35:39,296 [ 1] INFO  Unity: Connect[0] to server 127.0.0.1:8000
+
+2024-07-19 15:35:39,300 [ 1] INFO  Unity: LoadingManager::OnGameServerConnect :0 reason Success
+2024-07-19 15:35:40,772 [ 1] INFO  Unity: OnLogin:Failed [用户不存在.]
+2024-07-19 15:36:01,765 [ 1] INFO  Unity: UserLoginRequest::user :1833@qq.com psw:456
+2024-07-19 15:36:01,831 [ 1] INFO  Unity: OnLogin:Failed [密码错误.]
+2024-07-19 15:36:09,038 [ 1] INFO  Unity: UserLoginRequest::user :1833@qq.com psw:123.
+2024-07-19 15:36:09,071 [ 1] INFO  Unity: OnLogin:Success [None]
+2024-07-19 15:36:12,930 [ 1] INFO  Unity: OnDestroy NetworkManager.
+2024-07-19 15:36:12,931 [ 1] WARN  Unity: CloseConnection(), errorCode: 1007
+UnityEngine.Debug:LogWarning(Object)
+Network.NetClient:CloseConnection(Int32) (at Assets/Scripts/Network/NetClient.cs:180)
+Network.NetClient:OnDestroy() (at Assets/Scripts/Network/NetClient.cs:175)
+
