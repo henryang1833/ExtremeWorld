@@ -42,7 +42,7 @@ public class UIRegister : MonoBehaviour {
         UserService.Instance.SendRegister(this.username.text, this.password.text);
     }
 
-    public void OnRegister(Result result, string message)
+    void OnRegister(Result result, string message)
     {
         if (result == Result.Success)      
             MessageBox.Show("注册成功，请登录", "提示", MessageBoxType.Information).OnYes = this.CloseRegister; //todo: OnNo呢？
@@ -50,7 +50,7 @@ public class UIRegister : MonoBehaviour {
             MessageBox.Show(message, "错误", MessageBoxType.Error);
     }
 
-    private void CloseRegister()
+    void CloseRegister()
     {
         this.gameObject.SetActive(false);
         uiLogin.SetActive(true);

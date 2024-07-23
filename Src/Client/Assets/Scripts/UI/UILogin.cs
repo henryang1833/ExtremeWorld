@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Services;
 using SkillBridge.Message;
-using System;
 
 public class UILogin : MonoBehaviour {
     public InputField username;
@@ -30,10 +27,13 @@ public class UILogin : MonoBehaviour {
         UserService.Instance.SendLogin(this.username.text, this.password.text);
     }
 
-    public void OnLogin(Result result, string message)
+    void OnLogin(Result result, string message)
     {
         if (result == Result.Success)
-            MessageBox.Show("登录成功", "提示", MessageBoxType.Information); //todo: OnNo呢？
+        {
+            //登录成功，进入角色选择
+            SceneManager.Instance.LoadScene("CharSelect");
+        }
         else
             MessageBox.Show(message, "错误", MessageBoxType.Error);
     }

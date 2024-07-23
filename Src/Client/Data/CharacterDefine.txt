@@ -5,6 +5,7 @@
     "Type": "Normal",
     "Class": "WARRIOR",
     "Resource": "Character/Warrior",
+    "Description": "战士（Warrior），属于近战英雄，战士分为突进英雄、防御英雄、团控英雄等，防御性英雄的自带血量和防御都高，在游戏中可作为半肉半输出（既买攻击装备也买防御装备）。 团战时，可以吸收敌方英雄的伤害，又可以造成一定量的伤害。",
     "InitLevel": 1,
     "Speed": 300
   },
@@ -14,15 +15,17 @@
     "Type": "Normal",
     "Class": "WIZARD",
     "Resource": "Character/Wizard",
+    "Description": "法师是游戏当中比较常见的输出职业，作为远程输出职业，有着足够的输出能力。 在游戏中法师共拥有两种形态，一种是活，另一种是冰。 不同的形态释放出的技能也是完全不同的，一般火元素有着较强的输出力和伤害力。",
     "InitLevel": 1,
     "Speed": 300
   },
   "3": {
     "TID": 3,
-    "Name": "弓箭手",
+    "Name": "射手",
     "Type": "Normal",
     "Class": "ARCHER",
     "Resource": "Character/Archer",
+    "Description": "射手，俗称ADC，英雄多为远程物理输出（普通攻击/平A）为主，远程英雄比较容易利用射程优势安全的输出，在整个团队担任重要的物理输出位置，射手类英雄的特点是输出伤害高，吃攻速，生命值低，防御低、属于脆皮类英雄，在团战中容易被敌方英雄集火先秒杀，或偷袭秒杀。",
     "InitLevel": 1,
     "Speed": 300
   },
