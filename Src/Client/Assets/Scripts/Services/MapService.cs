@@ -6,6 +6,8 @@ using Models;
 using System;
 using Network;
 using SkillBridge.Message;
+using Managers;
+
 namespace Services
 {
     public class MapService : Singleton<MapService>, IDisposable
@@ -47,6 +49,7 @@ namespace Services
             if (DataManager.Instance.Maps.ContainsKey(mapId))
             {
                 MapDefine map = DataManager.Instance.Maps[mapId];
+                User.Instance.CurrentMapData = map;
                 SceneManager.Instance.LoadScene(map.Resource);
             }
             else
