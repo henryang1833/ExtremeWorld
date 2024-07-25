@@ -60,6 +60,7 @@ public class PlayerInputController : MonoBehaviour
                 this.SendEntityEvent(EntityEvent.MoveFwd);
             }
             this.rb.velocity = this.rb.velocity.y * Vector3.up + GameObjectTool.LogicToWorld(character.direction) * (this.character.speed + 9.81f) / 100f;//?
+            //this.rb.velocity = (this.rb.velocity.y - 9.81f / 100) * Vector3.up + GameObjectTool.LogicToWorld(character.direction).normalized * this.character.speed;
         }
         else if (v < -0.01)
         {
@@ -90,7 +91,8 @@ public class PlayerInputController : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         if (h < -0.1 || h > 0.1)
         {
-            this.transform.Rotate(0, h * rotateSpeed, 0); //时间不乘？
+            //this.transform.Rotate(0, h * rotateSpeed, 0); //时间不乘？
+            this.transform.Rotate(0, h * rotateSpeed*Time.fixedDeltaTime, 0); 
             Vector3 dir = GameObjectTool.LogicToWorld(character.direction);
             Quaternion rot = new Quaternion();
             rot.SetFromToRotation(dir, this.transform.forward);
@@ -98,7 +100,7 @@ public class PlayerInputController : MonoBehaviour
             if(rot.eulerAngles.y > this.turnAngle && rot.eulerAngles.y < (360 - this.turnAngle))
             {
                 character.SetDirection(GameObjectTool.WorldToLogic(this.transform.forward));
-                rb.transform.forward = this.transform.forward; // 自己赋值给自己？
+                //rb.transform.forward = this.transform.forward; // 自己赋值给自己？
                 this.SendEntityEvent(EntityEvent.None);
             }
         }
@@ -117,7 +119,7 @@ public class PlayerInputController : MonoBehaviour
             this.character.SetPosition(GameObjectTool.WorldToLogic(this.rb.transform.position));
             this.SendEntityEvent(EntityEvent.None);
         }
-        this.transform.position = this.rb.transform.position;
+        //this.transform.position = this.rb.transform.position;
     }
 
     private void SendEntityEvent(EntityEvent entityEvent)

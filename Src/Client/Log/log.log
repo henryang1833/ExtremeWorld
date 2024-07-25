@@ -1,19 +1,55 @@
-2024-07-23 19:27:24,706 [ 1] INFO  Unity: LoadingManager start
-2024-07-23 19:27:27,744 [ 1] INFO  Unity: DataManager > DataManager()
-2024-07-23 19:27:58,009 [ 1] INFO  Unity: UserLoginRequest::user :1833@qq.com psw:123.
-2024-07-23 19:27:58,011 [ 1] INFO  Unity: ConnectToServer() Start
-2024-07-23 19:27:58,012 [ 1] INFO  Unity: DoConnect
-2024-07-23 19:27:58,013 [ 1] INFO  Unity: NetClient.DoConnect on 127.0.0.1:8000
-2024-07-23 19:27:58,016 [ 1] INFO  Unity: Connect[0] to server 127.0.0.1:8000
+2024-07-25 10:08:36,408 [ 1] INFO  Unity: LoadingManager start
+2024-07-25 10:08:39,439 [ 1] INFO  Unity: DataManager > DataManager()
+2024-07-25 10:08:54,527 [ 1] INFO  Unity: UserLoginRequest::user :1833@qq.com psw:123.
+2024-07-25 10:08:54,529 [ 1] INFO  Unity: ConnectToServer() Start
+2024-07-25 10:08:54,529 [ 1] INFO  Unity: DoConnect
+2024-07-25 10:08:54,531 [ 1] INFO  Unity: NetClient.DoConnect on 127.0.0.1:8000
+2024-07-25 10:08:54,533 [ 1] INFO  Unity: Connect[0] to server 127.0.0.1:8000
 
-2024-07-23 19:27:58,019 [ 1] INFO  Unity: LoadingManager::OnGameServerConnect :0 reason Success
-2024-07-23 19:27:58,107 [ 1] INFO  Unity: OnLogin:Success [None]
-2024-07-23 19:27:58,109 [ 1] INFO  Unity: LoadLevel:CharSelect
-2024-07-23 19:27:58,253 [ 1] INFO  Unity: LevelLoadCompleted:1
-2024-07-23 19:27:58,257 [ 1] INFO  Unity: Select Char:[1]½ð½ÛÄûÃÊ[Wizard]
-2024-07-23 20:00:31,151 [ 1] INFO  Unity: OnDestroy NetworkManager.
-2024-07-23 20:00:31,152 [ 1] WARN  Unity: CloseConnection(), errorCode: 1007
+2024-07-25 10:08:54,536 [ 1] INFO  Unity: LoadingManager::OnGameServerConnect :0 reason Success
+2024-07-25 10:08:54,624 [ 1] INFO  Unity: OnLogin:Success [None]
+2024-07-25 10:08:54,626 [ 1] INFO  Unity: LoadLevel:CharSelect
+2024-07-25 10:08:54,818 [ 1] INFO  Unity: LevelLoadCompleted:1
+2024-07-25 10:08:54,822 [ 1] INFO  Unity: Select Char:[1]½ð½ÛÄûÃÊ[Wizard]
+2024-07-25 10:08:56,293 [ 1] INFO  Unity: Select Char:[2]½ð½ÛÄûÃÊ[Archer]
+2024-07-25 10:08:57,106 [ 1] INFO  Unity: UserGameEnter::characterIdx :1
+2024-07-25 10:08:57,142 [ 1] INFO  Unity: OnGameEnter:Success [None]
+2024-07-25 10:08:57,142 [ 1] INFO  Unity: OnMapCharacterEnter:Map:1 Count:2
+2024-07-25 10:08:57,144 [ 1] INFO  Unity: AddCharacter:2:½ð½ÛÄûÃÊ Map:1 Entity:(0:pos:(5000,4000,820),dir:(100,0,0),spd:0
+2024-07-25 10:08:57,145 [ 1] INFO  Unity: AddCharacter:2:½ð½ÛÄûÃÊ Map:1 Entity:(0:pos:(5000,4000,820),dir:(100,0,0),spd:0
+2024-07-25 10:08:57,146 [ 1] INFO  Unity: LoadLevel:MainCity
+2024-07-25 10:08:57,464 [ 1] INFO  Unity: LevelLoadCompleted:1
+2024-07-25 10:08:59,381 [ 1] INFO  Unity: SetDirection:(98, -17, 0)
+2024-07-25 10:08:59,612 [ 1] INFO  Unity: SetDirection:(94, -34, 0)
+2024-07-25 10:08:59,844 [ 1] INFO  Unity: SetDirection:(86, -51, 0)
+2024-07-25 10:09:00,011 [ 1] INFO  Unity: MoveForward
+2024-07-25 10:09:00,159 [ 1] INFO  Unity: SetDirection:(76, -65, 0)
+2024-07-25 10:09:00,706 [ 1] INFO  Unity: SetDirection:(63, -78, 0)
+2024-07-25 10:09:00,938 [ 1] INFO  Unity: SetDirection:(47, -88, 0)
+2024-07-25 10:09:01,170 [ 1] INFO  Unity: SetDirection:(30, -95, 0)
+2024-07-25 10:09:01,369 [ 1] INFO  Unity: Stop
+2024-07-25 10:09:01,402 [ 1] INFO  Unity: SetDirection:(13, -99, 0)
+2024-07-25 10:09:01,634 [ 1] INFO  Unity: SetDirection:(-5, -100, 0)
+2024-07-25 10:09:01,650 [ 1] INFO  Unity: MoveForward
+2024-07-25 10:09:04,700 [ 1] INFO  Unity: SetPosition:(5216, 2776, 802)
+2024-07-25 10:09:04,782 [ 1] INFO  Unity: Stop
+2024-07-25 10:09:04,881 [ 1] INFO  Unity: SetDirection:(-23, -97, 0)
+2024-07-25 10:09:05,129 [ 1] INFO  Unity: SetDirection:(-40, -92, 0)
+2024-07-25 10:09:05,278 [ 1] INFO  Unity: MoveForward
+2024-07-25 10:09:05,378 [ 1] INFO  Unity: SetDirection:(-55, -83, 0)
+2024-07-25 10:09:06,407 [ 1] INFO  Unity: SetDirection:(-69, -72, 0)
+2024-07-25 10:09:06,440 [ 1] INFO  Unity: Stop
+2024-07-25 10:09:06,639 [ 1] INFO  Unity: SetDirection:(-81, -58, 0)
+2024-07-25 10:09:06,871 [ 1] INFO  Unity: SetDirection:(-90, -43, 0)
+2024-07-25 10:09:07,086 [ 1] INFO  Unity: SetDirection:(-96, -27, 0)
+2024-07-25 10:09:07,318 [ 1] INFO  Unity: SetDirection:(-100, -9, 0)
+2024-07-25 10:09:07,552 [ 1] INFO  Unity: SetDirection:(-100, 9, 0)
+2024-07-25 10:09:08,263 [ 1] INFO  Unity: SetDirection:(-100, -9, 0)
+2024-07-25 10:09:08,495 [ 1] INFO  Unity: SetDirection:(-96, -27, 0)
+2024-07-25 10:09:30,212 [ 1] INFO  Unity: OnDestroy NetworkManager.
+2024-07-25 10:09:30,213 [ 1] WARN  Unity: CloseConnection(), errorCode: 1007
 UnityEngine.Debug:LogWarning(Object)
 Network.NetClient:CloseConnection(Int32) (at Assets/Scripts/Network/NetClient.cs:180)
 Network.NetClient:OnDestroy() (at Assets/Scripts/Network/NetClient.cs:175)
 
+2024-07-25 10:09:30,216 [ 1] INFO  Unity: Character_2_½ð½ÛÄûÃÊ OnDestroy:ID:0 POS:(5015, 2469, 802) DIR:(-96, -27, 0) SPD:0

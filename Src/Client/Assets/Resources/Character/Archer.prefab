@@ -2360,7 +2360,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!95 &95433072381995678
 Animator:
@@ -2406,13 +2406,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1630882197814144}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1632c31dbd4364f4ab29b7c816018e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 54143610516617656}
-  rotateSpeed: 2
+  rotateSpeed: 45
   turnAngle: 10
   speed: 0
   entityController: {fileID: 114308339425248716}
