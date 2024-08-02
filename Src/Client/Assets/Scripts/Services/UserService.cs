@@ -5,6 +5,8 @@ using System;
 using Network;
 using SkillBridge.Message;
 using Common;
+using Entities;
+
 namespace Services
 {
     public class UserService : Singleton<UserService>, IDisposable
@@ -28,7 +30,8 @@ namespace Services
 
         private void OnUserGameLeave(object sender, UserGameLeaveResponse message)
         {
-            throw new NotImplementedException();
+            MapService.Instance.CurrentMapId = 0;
+            Models.User.Instance.CurrentCharacter = null;
         }
 
         private void OnUserGameEnter(object sender, UserGameEnterResponse response)

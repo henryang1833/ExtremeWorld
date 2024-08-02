@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Models;
-public class UIMainCity : MonoBehaviour
+public class UIMain : MonoSingleton<UIMain>
 {
     public Text avatarName;
     public Text avatarLvele;
-    
-    void Start()
+
+    protected override void OnStart()
     {
         this.UpdateAvatar();
     }
@@ -18,5 +18,11 @@ public class UIMainCity : MonoBehaviour
     {
         this.avatarName.text = string.Format("{0}", User.Instance.CurrentCharacter.Name);
         this.avatarLvele.text = User.Instance.CurrentCharacter.Level.ToString();
+    }
+
+    public void BackToCharSelect()
+    {
+        SceneManager.Instance.LoadScene("CharSelect");
+        Services.UserService.Instance.SendGameLeave();
     }
 }

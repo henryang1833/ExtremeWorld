@@ -19,6 +19,7 @@ namespace Entities
         {
             get
             {
+                UpdataEntityData();
                 return entityData;
             }
 
@@ -27,6 +28,13 @@ namespace Entities
                 entityData = value;
                 this.SetEntityData(value);
             }
+        }
+
+        private void UpdataEntityData()
+        {
+            entityData.Position.FromVector3Int(this.position);
+            entityData.Direction.FromVector3Int(this.direction);
+            entityData.Speed = this.speed;
         }
 
         public Entity(NEntity entity)
@@ -43,10 +51,6 @@ namespace Entities
                 Vector3 dir = this.direction;
                 this.position += Vector3Int.RoundToInt(dir * speed * delta / 100f); //不清楚为啥/100
             }
-
-            entityData.Position.FromVector3Int(this.position);
-            entityData.Direction.FromVector3Int(this.direction);
-            entityData.Speed = this.speed;
         }
 
         public void SetEntityData(NEntity entity)

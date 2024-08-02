@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Services;
 using SkillBridge.Message;
-using System;
 
 public class UIRegister : MonoBehaviour {
     public InputField username;

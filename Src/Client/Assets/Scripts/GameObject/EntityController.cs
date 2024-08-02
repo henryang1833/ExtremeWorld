@@ -4,8 +4,9 @@ using UnityEngine;
 using Entities;
 using System;
 using SkillBridge.Message;
+using Managers;
 
-public class EntityController : MonoBehaviour
+public class EntityController : MonoBehaviour,IEntityNotify
 {
     public Animator anim;
     public Rigidbody rb;
@@ -29,7 +30,10 @@ public class EntityController : MonoBehaviour
     void Start()
     {
         if (entity != null)
+        {
+            EntityManager.Instance.RegisterEntityChangeNotify(entity.entityId, this);
             this.UpdateTransform();
+        }
 
         if (!this.isPlayer)
             rb.useGravity = false;
@@ -83,5 +87,17 @@ public class EntityController : MonoBehaviour
                 anim.SetTrigger("Jump");
                 break;
         }
+    }
+
+    public void OnEntityRemoved()
+    {
+        if (UIWorldElementManager.Instance != null)        
+            UIWorldElementManager.Instance.RemoveCharacterNameBar(this.transform);
+        Destroy(this.gameObject);
+    }
+
+    public void OnEntityChanged(Entity entity)
+    {
+        
     }
 }

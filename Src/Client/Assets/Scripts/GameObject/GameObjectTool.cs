@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using SkillBridge.Message;
-class GameObjectTool
+public class GameObjectTool
 {
     public static Vector3 LogicToWorld(NVector3 vector)
     {
@@ -23,6 +23,16 @@ class GameObjectTool
             x = Mathf.RoundToInt(vector.x * 100),
             y = Mathf.RoundToInt(vector.z * 100),
             z = Mathf.RoundToInt(vector.y * 100)
+        };
+    }
+
+    public static NVector3 WorldToLogicN(Vector3 vector)
+    {
+        return new NVector3()
+        {
+            X = Mathf.RoundToInt(vector.x * 100),
+            Y = Mathf.RoundToInt(vector.z * 100),
+            Z = Mathf.RoundToInt(vector.y * 100)
         };
     }
 }
