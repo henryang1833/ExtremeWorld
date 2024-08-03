@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\GameObject\GameObjectTool.cs" />
     <Compile Include="Assets\Scripts\GameObject\MainPlayerCamera.cs" />
     <Compile Include="Assets\Scripts\GameObject\MapController.cs" />
+    <Compile Include="Assets\Scripts\GameObject\NPCController.cs" />
     <Compile Include="Assets\Scripts\GameObject\PlayerInputController.cs" />
     <Compile Include="Assets\Scripts\GameObject\Teleporte.cs" />
     <Compile Include="Assets\Scripts\Log\UnityLogger.cs" />
@@ -77,6 +78,8 @@
     <Compile Include="Assets\Scripts\Manager\DataManager.cs" />
     <Compile Include="Assets\Scripts\Manager\EntityManager.cs" />
     <Compile Include="Assets\Scripts\Manager\MiniMapManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\NPCManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\TestManager.cs" />
     <Compile Include="Assets\Scripts\Models\User.cs" />
     <Compile Include="Assets\Scripts\Network\NetClient.cs" />
     <Compile Include="Assets\Scripts\Scene\SceneManager.cs" />

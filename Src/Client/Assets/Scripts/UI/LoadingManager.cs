@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Services;
+using Managers;
+
 public class LoadingManager : MonoBehaviour {
     public GameObject UITips;
     public GameObject UILoading;
@@ -32,6 +34,7 @@ public class LoadingManager : MonoBehaviour {
 
         MapService.Instance.Init();
         UserService.Instance.Init();
+        TestManager.Instance.Init();
 
 
         for(float i = 0; i < 100;)
