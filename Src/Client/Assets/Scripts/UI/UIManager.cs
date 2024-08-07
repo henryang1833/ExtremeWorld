@@ -17,10 +17,11 @@ public class UIManager : Singleton<UIManager>
     public UIManager()
     {
         this.UIResources.Add(typeof(UITest), new UIElement() { Resources = "UI/UITest", Cache = true });
+        this.UIResources.Add(typeof(UIBag), new UIElement() { Resources = "UI/UIBag", Cache = true });
     }
 
     public T Show<T>()
-    {
+    { 
         Type type = typeof(T);
         if (this.UIResources.ContainsKey(type))
         {

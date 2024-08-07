@@ -53,7 +53,26 @@ namespace GameServer.Services
             message.Response.gameEnter = new UserGameEnterResponse();
             message.Response.gameEnter.Result = Result.Success;
             message.Response.gameEnter.Errormsg = "None";
+            message.Response.gameEnter.Character = character.Info;
 
+            //道具系统测试
+            int itemID = 1;
+            bool hasItem = character.itemManager.HasItem(itemID);
+            Log.InfoFormat("HasItem:[{0}]{1}", itemID, 1);
+            if (hasItem)
+            {
+                //character.itemManager.RemoveItem(itemID, 1);
+            }
+            else
+            {
+                character.itemManager.AddItem(1, 200);
+                character.itemManager.AddItem(2, 100);
+                character.itemManager.AddItem(3, 30);
+                character.itemManager.AddItem(4, 120);
+            }
+            Models.Item item = character.itemManager.GetItem(itemID);
+            Log.InfoFormat("Item:[{0}][{1}]", itemID, item);
+            DBService.Instance.Save();
             byte[] data = PackageHandler.PackMessage(message);
             sender.SendData(data, 0, data.Length);
             sender.Session.Character = character;
@@ -74,7 +93,11 @@ namespace GameServer.Services
                 MapPosY = 4000,
                 MapPosZ = 820,
             };
-
+            var bag = new TCharacterBag();
+            bag.Owner = character;
+            bag.Items = new byte[0];
+            bag.Unlocked = 20;
+            character.Bag = DBService.Instance.Entities.TCharacterBags.Add(bag);
             character = DBService.Instance.Entities.Characters.Add(character);
             sender.Session.User.Player.Characters.Add(character);
             DBService.Instance.Entities.SaveChanges();

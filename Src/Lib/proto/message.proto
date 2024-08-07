@@ -46,6 +46,15 @@ enum ENTITY_EVENT
 	JUMP = 4;
 }
 
+enum ITEM_TYPE
+{
+	NORMAL = 0;
+	MATERIAL = 1;
+	TASK = 2;
+	EQUIP = 3;
+	RIDE = 4;
+}
+
 message NUserInfo {
 	int32 id = 1;
 	NPlayerInfo player = 2;
@@ -56,7 +65,8 @@ message NPlayerInfo {
 	repeated NCharacterInfo characters = 2;
 }
 
-message NCharacterInfo {
+message NCharacterInfo 
+{
 	int32 id = 1;
 	int32 tid = 2;
 	string name = 3;
@@ -65,8 +75,20 @@ message NCharacterInfo {
 	int32 level = 6;
 	int32 mapId = 7;
 	NEntity entity = 8;
+	int64 gold = 9;
+	repeated NItemInfo Items = 10;
+	NBagInfo Bag = 11;
 }
-
+message NBagInfo
+{
+	int32 Unlocked = 1;
+	bytes Items = 2;
+}
+message NItemInfo
+{
+	int32 id = 1;
+	int32 count = 2;
+}
 message NVector3
 {
 	int32 x = 1;
@@ -120,8 +142,17 @@ message NetMessageRequest{
 	MapEntitySyncRequest mapEntitySync = 8;
 	MapTeleportRequest mapTeleport = 9;
 
-	FirstTestRequest firstRequest = 10;
-	YhwRequest yhwRequest = 11;
+	ItemBuyRequest itemBuy = 10;
+}
+
+message BagSaveRequest
+{
+	NBagInfo BagInfo = 1;
+}
+
+message BagSaveResponse{
+	RESULT result = 1;
+	string errormsg = 2;
 }
 
 message NetMessageResponse{
@@ -136,15 +167,20 @@ message NetMessageResponse{
 
 	MapEntitySyncResponse mapEntitySync = 8;
 	
+	ItemBuyResponse itemBuy = 10;
+	// StatusNotify statusNotify = 100;
 }
 
-message FirstTestRequest{
-	string helloworld = 1;
+message ItemBuyRequest{
+	int32 shopId = 1;
+	int32 shopItemId = 2;
 }
 
-message YhwRequest{
-	string call = 1;
+message ItemBuyResponse{
+	RESULT result = 1;
+	string errormsg = 2;
 }
+
 
 // User Protocol
 message UserLoginRequest {
@@ -190,6 +226,7 @@ message UserGameEnterRequest
 message UserGameEnterResponse {
 	RESULT result = 1;
 	string errormsg = 2;
+	NCharacterInfo character = 3;
 }
 
 message UserGameLeaveRequest

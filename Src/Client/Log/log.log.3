@@ -1,51 +1,34 @@
-2024-08-02 15:52:07,794 [ 1] INFO  Unity: LoadingManager start
-2024-08-02 15:52:10,947 [ 1] INFO  Unity: DataManager > DataManager()
-2024-08-02 15:52:34,259 [ 1] INFO  Unity: UserLoginRequest::user :1833@qq.com psw:123.
-2024-08-02 15:52:34,261 [ 1] INFO  Unity: ConnectToServer() Start
-2024-08-02 15:52:34,262 [ 1] INFO  Unity: DoConnect
-2024-08-02 15:52:34,263 [ 1] INFO  Unity: NetClient.DoConnect on 127.0.0.1:8000
-2024-08-02 15:52:34,266 [ 1] INFO  Unity: Connect[0] to server 127.0.0.1:8000
+2024-08-06 20:13:52,250 [ 1] INFO  Unity: LoadingManager start
+2024-08-06 20:13:56,034 [ 1] INFO  Unity: DataManager > DataManager()
+2024-08-06 20:14:08,666 [ 1] INFO  Unity: UserLoginRequest::user :1833@qq.com psw:123.
+2024-08-06 20:14:08,675 [ 1] INFO  Unity: ConnectToServer() Start
+2024-08-06 20:14:08,675 [ 1] INFO  Unity: DoConnect
+2024-08-06 20:14:08,677 [ 1] INFO  Unity: NetClient.DoConnect on 127.0.0.1:8000
+2024-08-06 20:14:08,679 [ 1] INFO  Unity: Connect[0] to server 127.0.0.1:8000
 
-2024-08-02 15:52:34,269 [ 1] INFO  Unity: LoadingManager::OnGameServerConnect :0 reason Success
-2024-08-02 15:52:36,483 [ 1] INFO  Unity: OnLogin:Success [None]
-2024-08-02 15:52:36,485 [ 1] INFO  Unity: LoadLevel:CharSelect
-2024-08-02 15:52:37,260 [ 1] INFO  Unity: LevelLoadCompleted:1
-2024-08-02 15:52:37,266 [ 1] INFO  Unity: Select Char:[1]½ð½ÛÄûÃÊ[Wizard]
-2024-08-02 15:52:38,967 [ 1] INFO  Unity: Select Char:[2]½ð½ÛÄûÃÊ[Archer]
-2024-08-02 15:52:39,807 [ 1] INFO  Unity: UserGameEnter::characterIdx :1
-2024-08-02 15:52:39,842 [ 1] INFO  Unity: OnGameEnter:Success [None]
-2024-08-02 15:52:39,843 [ 1] INFO  Unity: OnMapCharacterEnter:Map:1 Count:1
-2024-08-02 15:52:39,844 [ 1] INFO  Unity: AddCharacter:1:½ð½ÛÄûÃÊ Map:1 Entity:(1:pos:(5000,4000,820),dir:(100,0,0),spd:0
-2024-08-02 15:52:39,848 [ 1] INFO  Unity: LoadLevel:MainCity
-2024-08-02 15:52:40,994 [ 1] WARN  Unity: No mesh data available for mesh Sphere001 on particle system fx_portal. Make sure Read/Write Enabled is set in the importer to work on the particle system renderer
+2024-08-06 20:14:08,685 [ 1] INFO  Unity: LoadingManager::OnGameServerConnect :0 reason Success
+2024-08-06 20:14:08,900 [ 1] INFO  Unity: OnLogin:Success [None]
+2024-08-06 20:14:08,905 [ 1] INFO  Unity: LoadLevel:CharSelect
+2024-08-06 20:14:09,118 [ 1] INFO  Unity: LevelLoadCompleted:1
+2024-08-06 20:14:09,122 [ 1] INFO  Unity: Select Char:[1]½ð½ÛÄûÃÊ[Archer]
+2024-08-06 20:14:10,290 [ 1] INFO  Unity: UserGameEnter::characterIdx :0
+2024-08-06 20:14:10,339 [ 1] INFO  Unity: OnGameEnter:Success [None]
+2024-08-06 20:14:10,347 [ 1] INFO  Unity: ItemManager:Init[Id:1,Count:200]
+2024-08-06 20:14:10,348 [ 1] INFO  Unity: ItemManager:Init[Id:2,Count:100]
+2024-08-06 20:14:10,348 [ 1] INFO  Unity: ItemManager:Init[Id:3,Count:30]
+2024-08-06 20:14:10,349 [ 1] INFO  Unity: ItemManager:Init[Id:4,Count:120]
+2024-08-06 20:14:10,357 [ 1] INFO  Unity: OnMapCharacterEnter:Map:1 Count:1
+2024-08-06 20:14:10,364 [ 1] INFO  Unity: AddCharacter:12:½ð½ÛÄûÃÊ Map:1 Entity:(12:pos:(5000,4000,820),dir:(100,0,0),spd:0
+2024-08-06 20:14:10,376 [ 1] INFO  Unity: LoadLevel:MainCity
+2024-08-06 20:14:11,358 [ 1] WARN  Unity: No mesh data available for mesh Sphere001 on particle system fx_portal. Make sure Read/Write Enabled is set in the importer to work on the particle system renderer
 
-2024-08-02 15:52:40,994 [ 1] WARN  Unity: No mesh data available for mesh Sphere001 on particle system fx_portal. Make sure Read/Write Enabled is set in the importer to work on the particle system renderer
+2024-08-06 20:14:11,358 [ 1] WARN  Unity: No mesh data available for mesh Sphere001 on particle system fx_portal. Make sure Read/Write Enabled is set in the importer to work on the particle system renderer
 
-2024-08-02 15:52:41,121 [ 1] INFO  Unity: LevelLoadCompleted:1
-2024-08-02 15:52:41,129 [ 1] FATAL Unity: <log4net.Error>Exception during StringFormat: Input string was not in a correct format. <format>{0
-{1}</format><args>{KeyNotFoundException: The given key was not present in the dictionary., System.Collections.Generic.Dictionary`2[System.Int32,Common.Data.NPCDefine].get_Item (Int32 key) (at /Users/builduser/buildslave/mono/build/mcs/class/corlib/System.Collections.Generic/Dictionary.cs:150)
-Managers.NPCManager.GetNPCDefine (Int32 npcID) (at Assets/Scripts/Manager/NPCManager.cs:11)
-NPCController.Start () (at Assets/Scripts/GameObject/NPCController.cs:12)
-}</args></log4net.Error>
-2024-08-02 15:52:41,132 [ 1] FATAL Unity: <log4net.Error>Exception during StringFormat: Input string was not in a correct format. <format>{0
-{1}</format><args>{KeyNotFoundException: The given key was not present in the dictionary., System.Collections.Generic.Dictionary`2[System.Int32,Common.Data.NPCDefine].get_Item (Int32 key) (at /Users/builduser/buildslave/mono/build/mcs/class/corlib/System.Collections.Generic/Dictionary.cs:150)
-Managers.NPCManager.GetNPCDefine (Int32 npcID) (at Assets/Scripts/Manager/NPCManager.cs:11)
-NPCController.Start () (at Assets/Scripts/GameObject/NPCController.cs:12)
-}</args></log4net.Error>
-2024-08-02 15:52:41,142 [ 1] FATAL Unity: <log4net.Error>Exception during StringFormat: Input string was not in a correct format. <format>{0
-{1}</format><args>{KeyNotFoundException: The given key was not present in the dictionary., System.Collections.Generic.Dictionary`2[System.Int32,Common.Data.NPCDefine].get_Item (Int32 key) (at /Users/builduser/buildslave/mono/build/mcs/class/corlib/System.Collections.Generic/Dictionary.cs:150)
-Managers.NPCManager.GetNPCDefine (Int32 npcID) (at Assets/Scripts/Manager/NPCManager.cs:11)
-NPCController.Start () (at Assets/Scripts/GameObject/NPCController.cs:12)
-}</args></log4net.Error>
-2024-08-02 15:52:41,144 [ 1] FATAL Unity: <log4net.Error>Exception during StringFormat: Input string was not in a correct format. <format>{0
-{1}</format><args>{KeyNotFoundException: The given key was not present in the dictionary., System.Collections.Generic.Dictionary`2[System.Int32,Common.Data.NPCDefine].get_Item (Int32 key) (at /Users/builduser/buildslave/mono/build/mcs/class/corlib/System.Collections.Generic/Dictionary.cs:150)
-Managers.NPCManager.GetNPCDefine (Int32 npcID) (at Assets/Scripts/Manager/NPCManager.cs:11)
-NPCController.Start () (at Assets/Scripts/GameObject/NPCController.cs:12)
-}</args></log4net.Error>
-2024-08-02 15:53:33,658 [ 1] INFO  Unity: Character_1_½ð½ÛÄûÃÊ OnDestroy:ID:1 POS:(5000, 4000, 820) DIR:(100, 0, 0) SPD:0
-2024-08-02 15:53:33,660 [ 1] INFO  Unity: OnDestroy NetworkManager.
-2024-08-02 15:53:33,660 [ 1] WARN  Unity: CloseConnection(), errorCode: 1007
+2024-08-06 20:14:11,473 [ 1] INFO  Unity: LevelLoadCompleted:1
+2024-08-06 20:14:34,369 [ 1] INFO  Unity: OnDestroy NetworkManager.
+2024-08-06 20:14:34,370 [ 1] WARN  Unity: CloseConnection(), errorCode: 1007
 UnityEngine.Debug:LogWarning(Object)
 Network.NetClient:CloseConnection(Int32) (at Assets/Scripts/Network/NetClient.cs:180)
 Network.NetClient:OnDestroy() (at Assets/Scripts/Network/NetClient.cs:175)
 
+2024-08-06 20:14:34,380 [ 1] INFO  Unity: Character_12_½ð½ÛÄûÃÊ OnDestroy:ID:12 POS:(5000, 4000, 820) DIR:(100, 0, 0) SPD:0

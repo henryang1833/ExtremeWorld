@@ -58,15 +58,11 @@ namespace Network
 
         public bool running { get; set; }
 
-        public PackageHandler packageHandler = new PackageHandler(null);
-
-        void Awake()
-        {
-            running = true;
-        }
+        public PackageHandler packageHandler = new PackageHandler(null);     
 
         protected override void OnStart()
         {
+            running = true;
             MessageDistributer.Instance.ThrowException = true;
         }
 
