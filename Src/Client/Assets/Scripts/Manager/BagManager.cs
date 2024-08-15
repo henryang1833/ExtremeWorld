@@ -52,6 +52,41 @@ namespace Managers
             }
         }
 
+        internal void AddItem(int itemId, int count)
+        {
+            ushort addCount = (ushort)count;
+            for(int i = 0;i<Items.Length;++i)
+            {
+                if(this.Items[i].ItemId == itemId)
+                {
+                    ushort canAdd = (ushort)(DataManager.Instance.Items[itemId].StackLimit - this.Items[i].Count);
+                    if(canAdd >= addCount)
+                    {
+                        this.Items[i].Count += addCount;
+                        addCount = 0;
+                        break;
+                    }
+                    else
+                    {
+                        this.Items[i].Count += canAdd;
+                        addCount -= canAdd;
+                    }
+                }
+            }
+            if (addCount > 0) //这里什么意思
+            {
+                for(int i = 0; i < Items.Length; ++i)
+                {
+                    if(this.Items[i].ItemId == 0)
+                    {
+                        this.Items[i].ItemId = (ushort)itemId;
+                        this.Items[i].Count = addCount;
+                        break;
+                    }
+                }
+            }
+        }
+
         //将字节数组中的内容填充到BagItem数组中
         unsafe void Analyze(byte[] data)
         {
@@ -63,6 +98,11 @@ namespace Managers
                     Items[i] = *item;
                 }
             }
+        }
+
+        internal void RemoveItem(int itemId, int count)
+        {
+               
         }
 
         //将维护的BagItem数组中的数据填充到Info对象的字节数组中
@@ -84,7 +124,7 @@ namespace Managers
             int i = 0;
             foreach(var kv in ItemManager.Instance.Items)
             {
-                if(kv.Value.Count <= kv.Value.define.StackLimit)
+                if(kv.Value.Count <= kv.Value.Define.StackLimit)
                 {
                     this.Items[i].ItemId = (ushort)kv.Key;
                     this.Items[i].Count = (ushort)kv.Value.Count;
@@ -92,12 +132,12 @@ namespace Managers
                 else
                 {
                     int count = kv.Value.Count;
-                    while (count > kv.Value.define.StackLimit)
+                    while (count > kv.Value.Define.StackLimit)
                     {
                         this.Items[i].ItemId = (ushort)kv.Key;
-                        this.Items[i].Count = (ushort)kv.Value.define.StackLimit;
+                        this.Items[i].Count = (ushort)kv.Value.Define.StackLimit;
                         i++;
-                        count -= kv.Value.define.StackLimit;
+                        count -= kv.Value.Define.StackLimit;
                     }
                     this.Items[i].ItemId = (ushort)kv.Key;
                     this.Items[i].Count = (ushort)count;

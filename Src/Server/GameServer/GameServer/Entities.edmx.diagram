@@ -12,7 +12,7 @@
         <AssociationConnector Association="ExtremeWorldModel.PlayerCharacter" />
         <EntityTypeShape EntityType="ExtremeWorldModel.TCharacterItem" Width="1.875" PointX="10.25" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="ExtremeWorldModel.TCharacterTCharacterItem" />
-        <EntityTypeShape EntityType="ExtremeWorldModel.TCharacterBag" Width="2" PointX="10.125" PointY="3.875" />
+        <EntityTypeShape EntityType="ExtremeWorldModel.TCharacterBag" Width="2" PointX="10" PointY="3.375" />
         <AssociationConnector Association="ExtremeWorldModel.TCharacterTCharacterBag" />
       </Diagram>
     </edmx:Diagrams>

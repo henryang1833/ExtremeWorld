@@ -2,7 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Services;
 using Common.Data;
+using System;
+
 namespace Managers
 {
     public class ItemManager : Singleton<ItemManager>
@@ -18,8 +21,47 @@ namespace Managers
 
                 Debug.LogFormat("ItemManager:Init[{0}]", item);
             }
+            StatusService.Instance.RegisterStatusNotify(StatusType.Item, OnItemNotify);
         }
 
+        private bool OnItemNotify(NStatus status)
+        {
+            if (status.Action == StatusAction.Add)
+            {
+                this.AddItem(status.Id, status.Value);
+            }
+            if (status.Action == StatusAction.Delete)
+            {
+                this.RemoveItem(status.Id, status.Value);
+            }
+            return true;
+        }
+
+        private void AddItem(int itemId, int count)
+        {
+            Item item = null;
+            if(this.Items.TryGetValue(itemId,out item))
+            {
+                item.Count += count;
+            }
+            else
+            {
+                item = new Item(itemId, count);
+                this.Items.Add(itemId, item);
+            }
+            BagManager.Instance.AddItem(itemId, count);
+        }
+
+        private void RemoveItem(int itemId, int count)
+        {
+            if (!this.Items.ContainsKey(itemId))
+                return;
+            Item item = this.Items[itemId];
+            if (item.Count < count)
+                return;
+            item.Count -= count;
+            BagManager.Instance.RemoveItem(itemId, count);
+        }
 
         public ItemDefine GetItem(int itemId)
         {

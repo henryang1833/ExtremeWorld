@@ -46,7 +46,11 @@ namespace Managers
             if (!eventMap.ContainsKey(npc.Function))
                 return false;
 
-            return eventMap[npc.Function](npc);
+
+            foreach (NpcActionHandler f in eventMap[npc.Function].GetInvocationList())
+                f.Invoke(npc);
+            return true;
+            //return eventMap[npc.Function](npc);
         }
 
         private bool DoTaskInateractive(NPCDefine npc)

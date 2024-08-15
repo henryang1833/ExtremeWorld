@@ -29,19 +29,18 @@ public class UIMiniMap : MonoBehaviour
     
     void Update()
     {
-        if(playerTransform == null)
-        {
+        if(playerTransform == null)   
             this.playerTransform = MiniMapManager.Instance.PlayerTransform;
-            return;
-        }
+            
         if (minimapBoundingBox == null)
-            Common.Log.Error("minimapBoundingBox == null");
-        float realWidth = minimapBoundingBox.bounds.size.x;
-        float realHeight = minimapBoundingBox.bounds.size.z;
-
+            return;
 
         if (playerTransform == null)
-            Common.Log.Error("playerTransform == null");
+            return;
+
+        float realWidth = minimapBoundingBox.bounds.size.x;
+        float realHeight = minimapBoundingBox.bounds.size.z;
+        
         float relaX = playerTransform.position.x - minimapBoundingBox.bounds.min.x;
         float relaY = playerTransform.position.z - minimapBoundingBox.bounds.min.z;
 

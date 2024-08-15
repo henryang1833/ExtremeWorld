@@ -1,34 +1,113 @@
-2024-08-06 20:18:22,286 [ 1] INFO  Unity: LoadingManager start
-2024-08-06 20:18:26,074 [ 1] INFO  Unity: DataManager > DataManager()
-2024-08-06 20:18:37,531 [ 1] INFO  Unity: UserLoginRequest::user :1833@qq.com psw:123.
-2024-08-06 20:18:37,539 [ 1] INFO  Unity: ConnectToServer() Start
-2024-08-06 20:18:37,540 [ 1] INFO  Unity: DoConnect
-2024-08-06 20:18:37,541 [ 1] INFO  Unity: NetClient.DoConnect on 127.0.0.1:8000
-2024-08-06 20:18:37,544 [ 1] INFO  Unity: Connect[0] to server 127.0.0.1:8000
+2024-08-15 11:33:38,197 [ 1] INFO  Unity: LoadingManager start
+2024-08-15 11:33:41,335 [ 1] INFO  Unity: DataManager > DataManager()
+2024-08-15 11:33:50,904 [ 1] INFO  Unity: UserLoginRequest::user :1833@qq.com psw:123.
+2024-08-15 11:33:50,905 [ 1] INFO  Unity: ConnectToServer() Start
+2024-08-15 11:33:50,906 [ 1] INFO  Unity: DoConnect
+2024-08-15 11:33:50,908 [ 1] INFO  Unity: NetClient.DoConnect on 127.0.0.1:8000
+2024-08-15 11:33:50,909 [ 1] INFO  Unity: Connect[0] to server 127.0.0.1:8000
 
-2024-08-06 20:18:37,550 [ 1] INFO  Unity: LoadingManager::OnGameServerConnect :0 reason Success
-2024-08-06 20:18:37,763 [ 1] INFO  Unity: OnLogin:Success [None]
-2024-08-06 20:18:37,768 [ 1] INFO  Unity: LoadLevel:CharSelect
-2024-08-06 20:18:38,008 [ 1] INFO  Unity: LevelLoadCompleted:1
-2024-08-06 20:18:38,013 [ 1] INFO  Unity: Select Char:[1]½ð½ÛÄûÃÊ[Archer]
-2024-08-06 20:18:39,427 [ 1] INFO  Unity: UserGameEnter::characterIdx :0
-2024-08-06 20:18:39,476 [ 1] INFO  Unity: OnGameEnter:Success [None]
-2024-08-06 20:18:39,485 [ 1] INFO  Unity: ItemManager:Init[Id:1,Count:200]
-2024-08-06 20:18:39,485 [ 1] INFO  Unity: ItemManager:Init[Id:2,Count:100]
-2024-08-06 20:18:39,486 [ 1] INFO  Unity: ItemManager:Init[Id:3,Count:30]
-2024-08-06 20:18:39,486 [ 1] INFO  Unity: ItemManager:Init[Id:4,Count:120]
-2024-08-06 20:18:39,495 [ 1] INFO  Unity: OnMapCharacterEnter:Map:1 Count:1
-2024-08-06 20:18:39,502 [ 1] INFO  Unity: AddCharacter:13:½ð½ÛÄûÃÊ Map:1 Entity:(13:pos:(5000,4000,820),dir:(100,0,0),spd:0
-2024-08-06 20:18:39,515 [ 1] INFO  Unity: LoadLevel:MainCity
-2024-08-06 20:18:40,513 [ 1] WARN  Unity: No mesh data available for mesh Sphere001 on particle system fx_portal. Make sure Read/Write Enabled is set in the importer to work on the particle system renderer
+2024-08-15 11:33:50,912 [ 1] INFO  Unity: LoadingManager::OnGameServerConnect :0 reason Success
+2024-08-15 11:33:50,995 [ 1] INFO  Unity: OnLogin:Success [None]
+2024-08-15 11:33:50,997 [ 1] INFO  Unity: LoadLevel:CharSelect
+2024-08-15 11:33:51,231 [ 1] INFO  Unity: LevelLoadCompleted:1
+2024-08-15 11:33:51,235 [ 1] INFO  Unity: Select Char:[1]happy[Archer]
+2024-08-15 11:33:52,389 [ 1] INFO  Unity: UserGameEnter::characterIdx :0
+2024-08-15 11:33:52,409 [ 1] INFO  Unity: OnGameEnter:Success [None]
+2024-08-15 11:33:52,411 [ 1] INFO  Unity: ItemManager:Init[Id:1,Count:20]
+2024-08-15 11:33:52,412 [ 1] INFO  Unity: ItemManager:Init[Id:2,Count:20]
+2024-08-15 11:33:52,413 [ 1] INFO  Unity: ItemManager:Init[Id:1001,Count:1]
+2024-08-15 11:33:52,414 [ 1] INFO  Unity: ItemManager:Init[Id:3001,Count:1]
+2024-08-15 11:33:52,414 [ 1] INFO  Unity: ItemManager:Init[Id:1002,Count:1]
+2024-08-15 11:33:52,415 [ 1] INFO  Unity: ItemManager:Init[Id:3002,Count:1]
+2024-08-15 11:33:52,416 [ 1] INFO  Unity: ItemManager:Init[Id:1003,Count:1]
+2024-08-15 11:33:52,416 [ 1] INFO  Unity: ItemManager:Init[Id:1004,Count:1]
+2024-08-15 11:33:52,417 [ 1] INFO  Unity: ItemManager:Init[Id:3007,Count:1]
+2024-08-15 11:33:52,421 [ 1] INFO  Unity: OnMapCharacterEnter:Map:1 Count:1
+2024-08-15 11:33:52,424 [ 1] INFO  Unity: AddCharacter:17:happy Map:1 Entity:(17:pos:(5000,4000,820),dir:(100,0,0),spd:0
+2024-08-15 11:33:52,426 [ 1] INFO  Unity: LoadLevel:MainCity
+2024-08-15 11:33:53,453 [ 1] WARN  Unity: No mesh data available for mesh Sphere001 on particle system fx_portal. Make sure Read/Write Enabled is set in the importer to work on the particle system renderer
 
-2024-08-06 20:18:40,513 [ 1] WARN  Unity: No mesh data available for mesh Sphere001 on particle system fx_portal. Make sure Read/Write Enabled is set in the importer to work on the particle system renderer
+2024-08-15 11:33:53,453 [ 1] WARN  Unity: No mesh data available for mesh Sphere001 on particle system fx_portal. Make sure Read/Write Enabled is set in the importer to work on the particle system renderer
 
-2024-08-06 20:18:40,628 [ 1] INFO  Unity: LevelLoadCompleted:1
-2024-08-06 20:19:05,310 [ 1] INFO  Unity: Character_13_½ð½ÛÄûÃÊ OnDestroy:ID:13 POS:(5000, 4000, 820) DIR:(100, 0, 0) SPD:0
-2024-08-06 20:19:05,312 [ 1] INFO  Unity: OnDestroy NetworkManager.
-2024-08-06 20:19:05,314 [ 1] WARN  Unity: CloseConnection(), errorCode: 1007
+2024-08-15 11:33:53,550 [ 1] INFO  Unity: LevelLoadCompleted:1
+2024-08-15 11:33:54,403 [ 1] INFO  Unity: MoveForward
+2024-08-15 11:33:54,404 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:17 POS:(5000,4000,820) DIR:(100,0,0) SPD:300
+2024-08-15 11:33:55,027 [ 1] INFO  Unity: Stop
+2024-08-15 11:33:55,028 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:17 POS:(5185,4000,820) DIR:(100,0,0) SPD:0
+2024-08-15 11:33:55,126 [ 1] INFO  Unity: SetDirection:(98, -18, 0)
+2024-08-15 11:33:55,127 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:17 POS:(5185,4000,820) DIR:(98,-18,0) SPD:0
+2024-08-15 11:33:55,359 [ 1] INFO  Unity: SetDirection:(93, -36, 0)
+2024-08-15 11:33:55,359 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:17 POS:(5185,4000,820) DIR:(93,-36,0) SPD:0
+2024-08-15 11:33:58,686 [ 1] INFO  Unity: LoadLevel:CharSelect
+2024-08-15 11:33:58,687 [ 1] INFO  Unity: UserGameLeaveRequest
+2024-08-15 11:33:58,724 [ 1] INFO  Unity: OnMapCharacterLeave: CharID:17
+2024-08-15 11:33:58,725 [ 1] INFO  Unity: RemoveCharacter:17
+2024-08-15 11:33:58,727 [ 1] INFO  Unity: Character_17_happy OnDestroy:ID:17 POS:(5185, 4000, 820) DIR:(93, -36, 0) SPD:0
+2024-08-15 11:33:58,880 [ 1] INFO  Unity: LevelLoadCompleted:1
+2024-08-15 11:33:58,882 [ 1] INFO  Unity: Select Char:[1]happy[Archer]
+2024-08-15 11:33:59,724 [ 1] INFO  Unity: UserGameEnter::characterIdx :0
+2024-08-15 11:33:59,738 [ 1] INFO  Unity: OnGameEnter:Success [None]
+2024-08-15 11:33:59,738 [ 1] INFO  Unity: ItemManager:Init[Id:1,Count:20]
+2024-08-15 11:33:59,739 [ 1] INFO  Unity: ItemManager:Init[Id:2,Count:20]
+2024-08-15 11:33:59,740 [ 1] INFO  Unity: ItemManager:Init[Id:1001,Count:1]
+2024-08-15 11:33:59,741 [ 1] INFO  Unity: ItemManager:Init[Id:3001,Count:1]
+2024-08-15 11:33:59,742 [ 1] INFO  Unity: ItemManager:Init[Id:1002,Count:1]
+2024-08-15 11:33:59,743 [ 1] INFO  Unity: ItemManager:Init[Id:3002,Count:1]
+2024-08-15 11:33:59,744 [ 1] INFO  Unity: ItemManager:Init[Id:1003,Count:1]
+2024-08-15 11:33:59,745 [ 1] INFO  Unity: ItemManager:Init[Id:1004,Count:1]
+2024-08-15 11:33:59,745 [ 1] INFO  Unity: ItemManager:Init[Id:3007,Count:1]
+2024-08-15 11:33:59,747 [ 1] INFO  Unity: OnMapCharacterEnter:Map:1 Count:1
+2024-08-15 11:33:59,747 [ 1] INFO  Unity: AddCharacter:18:happy Map:1 Entity:(18:pos:(5000,4000,820),dir:(100,0,0),spd:0
+2024-08-15 11:33:59,755 [ 1] INFO  Unity: LoadLevel:MainCity
+2024-08-15 11:34:00,739 [ 1] WARN  Unity: No mesh data available for mesh Sphere001 on particle system fx_portal. Make sure Read/Write Enabled is set in the importer to work on the particle system renderer
+
+2024-08-15 11:34:00,740 [ 1] WARN  Unity: No mesh data available for mesh Sphere001 on particle system fx_portal. Make sure Read/Write Enabled is set in the importer to work on the particle system renderer
+
+2024-08-15 11:34:00,831 [ 1] INFO  Unity: LevelLoadCompleted:1
+2024-08-15 11:34:06,595 [ 1] INFO  Unity: SetDirection:(98, -18, 0)
+2024-08-15 11:34:06,596 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5000,4000,820) DIR:(98,-18,0) SPD:0
+2024-08-15 11:34:06,840 [ 1] INFO  Unity: SetDirection:(93, -36, 0)
+2024-08-15 11:34:06,840 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5000,4000,820) DIR:(93,-36,0) SPD:0
+2024-08-15 11:34:07,071 [ 1] INFO  Unity: SetDirection:(85, -52, 0)
+2024-08-15 11:34:07,072 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5000,4000,820) DIR:(85,-52,0) SPD:0
+2024-08-15 11:34:07,423 [ 1] INFO  Unity: MoveForward
+2024-08-15 11:34:07,424 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5000,4000,820) DIR:(85,-52,0) SPD:300
+2024-08-15 11:34:08,192 [ 1] INFO  Unity: SetDirection:(75, -67, 0)
+2024-08-15 11:34:08,193 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5184,3862,820) DIR:(75,-67,0) SPD:300
+2024-08-15 11:34:08,439 [ 1] INFO  Unity: SetDirection:(61, -79, 0)
+2024-08-15 11:34:08,440 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5244,3817,820) DIR:(61,-79,0) SPD:300
+2024-08-15 11:34:08,669 [ 1] INFO  Unity: SetDirection:(46, -89, 0)
+2024-08-15 11:34:08,670 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5286,3761,820) DIR:(46,-89,0) SPD:300
+2024-08-15 11:34:08,902 [ 1] INFO  Unity: SetDirection:(29, -96, 0)
+2024-08-15 11:34:08,902 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5314,3705,820) DIR:(29,-96,0) SPD:300
+2024-08-15 11:34:09,136 [ 1] INFO  Unity: SetDirection:(11, -99, 0)
+2024-08-15 11:34:09,136 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5328,3635,820) DIR:(11,-99,0) SPD:300
+2024-08-15 11:34:09,373 [ 1] INFO  Unity: SetDirection:(-7, -100, 0)
+2024-08-15 11:34:09,374 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5342,3565,820) DIR:(-7,-100,0) SPD:300
+2024-08-15 11:34:09,605 [ 1] INFO  Unity: SetDirection:(-25, -97, 0)
+2024-08-15 11:34:09,606 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5342,3495,820) DIR:(-25,-97,0) SPD:300
+2024-08-15 11:34:09,829 [ 1] INFO  Unity: SetDirection:(-41, -91, 0)
+2024-08-15 11:34:09,829 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5329,3430,820) DIR:(-41,-91,0) SPD:300
+2024-08-15 11:34:10,478 [ 1] INFO  Unity: SetDirection:(-24, -97, 0)
+2024-08-15 11:34:10,478 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5251,3235,820) DIR:(-24,-97,0) SPD:300
+2024-08-15 11:34:10,705 [ 1] INFO  Unity: SetDirection:(-6, -100, 0)
+2024-08-15 11:34:10,706 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5237,3165,820) DIR:(-6,-100,0) SPD:300
+2024-08-15 11:34:10,940 [ 1] INFO  Unity: SetDirection:(13, -99, 0)
+2024-08-15 11:34:10,941 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5237,3095,820) DIR:(13,-99,0) SPD:300
+2024-08-15 11:34:11,182 [ 1] INFO  Unity: SetDirection:(31, -95, 0)
+2024-08-15 11:34:11,183 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5251,3025,820) DIR:(31,-95,0) SPD:300
+2024-08-15 11:34:11,414 [ 1] INFO  Unity: SetDirection:(47, -88, 0)
+2024-08-15 11:34:11,415 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5279,2955,820) DIR:(47,-88,0) SPD:300
+2024-08-15 11:34:11,642 [ 1] INFO  Unity: SetDirection:(63, -78, 0)
+2024-08-15 11:34:11,644 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5307,2899,820) DIR:(63,-78,0) SPD:300
+2024-08-15 11:34:11,945 [ 1] INFO  Unity: SetDirection:(76, -65, 0)
+2024-08-15 11:34:11,945 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5361,2827,820) DIR:(76,-65,0) SPD:300
+2024-08-15 11:34:12,230 [ 1] INFO  Unity: Stop
+2024-08-15 11:34:12,231 [ 1] INFO  Unity: MapEntityUpdateRequest: ID:18 POS:(5429,2776,820) DIR:(76,-65,0) SPD:0
+2024-08-15 11:34:19,300 [ 1] INFO  Unity: OnDestroy NetworkManager.
+2024-08-15 11:34:19,301 [ 1] WARN  Unity: CloseConnection(), errorCode: 1007
 UnityEngine.Debug:LogWarning(Object)
-Network.NetClient:CloseConnection(Int32) (at Assets/Scripts/Network/NetClient.cs:180)
-Network.NetClient:OnDestroy() (at Assets/Scripts/Network/NetClient.cs:175)
+Network.NetClient:CloseConnection(Int32) (at Assets/Scripts/Network/NetClient.cs:176)
+Network.NetClient:OnDestroy() (at Assets/Scripts/Network/NetClient.cs:171)
 
+2024-08-15 11:34:19,305 [ 1] INFO  Unity: Character_18_happy OnDestroy:ID:18 POS:(5429, 2776, 820) DIR:(76, -65, 0) SPD:0

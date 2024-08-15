@@ -31,7 +31,7 @@ public class UIBag : UIWindow
             {
                 GameObject go = Instantiate(bagItem, slots[i].transform);
                 var ui = go.GetComponent<UIIconItem>();
-                var def = ItemManager.Instance.Items[item.ItemId].define;
+                var def = ItemManager.Instance.Items[item.ItemId].Define;
                 ui.SetMainIcon(def.Icon, item.Count.ToString());
             }
         }
@@ -39,6 +39,20 @@ public class UIBag : UIWindow
             slots[i].color = Color.gray;
         yield return null;
     }
+
+
+    void Clear()
+    {
+        for (int i = 0; i < slots.Count; ++i)
+        {
+            if (slots[i].transform.childCount > 0)
+            {
+                Destroy(slots[i].transform.GetChild(0).gameObject);
+            }
+        }
+    }
+
+
 
     public void SetTitle(string title)
     {
@@ -48,5 +62,7 @@ public class UIBag : UIWindow
     public void OnReset()
     {
         BagManager.Instance.Reset();
+        this.Clear();
+        StartCoroutine(InitBags());
     }
 }

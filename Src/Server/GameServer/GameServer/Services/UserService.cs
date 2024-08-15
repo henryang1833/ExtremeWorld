@@ -55,24 +55,6 @@ namespace GameServer.Services
             message.Response.gameEnter.Errormsg = "None";
             message.Response.gameEnter.Character = character.Info;
 
-            //道具系统测试
-            int itemID = 1;
-            bool hasItem = character.itemManager.HasItem(itemID);
-            Log.InfoFormat("HasItem:[{0}]{1}", itemID, 1);
-            if (hasItem)
-            {
-                //character.itemManager.RemoveItem(itemID, 1);
-            }
-            else
-            {
-                character.itemManager.AddItem(1, 200);
-                character.itemManager.AddItem(2, 100);
-                character.itemManager.AddItem(3, 30);
-                character.itemManager.AddItem(4, 120);
-            }
-            Models.Item item = character.itemManager.GetItem(itemID);
-            Log.InfoFormat("Item:[{0}][{1}]", itemID, item);
-            DBService.Instance.Save();
             byte[] data = PackageHandler.PackMessage(message);
             sender.SendData(data, 0, data.Length);
             sender.Session.Character = character;
@@ -92,6 +74,8 @@ namespace GameServer.Services
                 MapPosX = 5000,
                 MapPosY = 4000,
                 MapPosZ = 820,
+                Gold = 100000,//初始10万金币方便测试
+                Equips = new byte[28]
             };
             var bag = new TCharacterBag();
             bag.Owner = character;
@@ -99,6 +83,20 @@ namespace GameServer.Services
             bag.Unlocked = 20;
             character.Bag = DBService.Instance.Entities.TCharacterBags.Add(bag);
             character = DBService.Instance.Entities.Characters.Add(character);
+
+            character.Items.Add(new TCharacterItem()
+            {
+                Owner = character,
+                ItemID = 1,
+                ItemCount = 20
+            });
+
+            character.Items.Add(new TCharacterItem()
+            {
+                Owner = character,
+                ItemID = 2,
+                ItemCount = 20
+            });
             sender.Session.User.Player.Characters.Add(character);
             DBService.Instance.Entities.SaveChanges();
             
@@ -132,32 +130,30 @@ namespace GameServer.Services
         private void OnLogin(NetConnection<NetSession> sender, UserLoginRequest request)
         {
             Log.InfoFormat("UserLoginRequest: User:{0}  Pass:{1}", request.User, request.Passward);
-            NetMessage message = new NetMessage();
-            message.Response = new NetMessageResponse();
-            message.Response.userLogin = new UserLoginResponse();
+            sender.Session.Response.userLogin = new UserLoginResponse();
 
             TUser user = DBService.Instance.Entities.Users.Where(u => u.Username == request.User).FirstOrDefault();
 
             if (user == null)
             {
-                message.Response.userLogin.Result = Result.Failed;
-                message.Response.userLogin.Errormsg = "用户不存在.";
+                sender.Session.Response.userLogin.Result = Result.Failed;
+                sender.Session.Response.userLogin.Errormsg = "用户不存在.";
             }
             else if (user.Password != request.Passward)
             {
-                message.Response.userLogin.Result = Result.Failed;
-                message.Response.userLogin.Errormsg = "密码错误.";
+                sender.Session.Response.userLogin.Result = Result.Failed;
+                sender.Session.Response.userLogin.Errormsg = "密码错误.";
             }
             else
             {
                 sender.Session.User = user;
 
-                message.Response.userLogin.Result = Result.Success;
-                message.Response.userLogin.Errormsg = "None";
-                message.Response.userLogin.Userinfo = new NUserInfo();
-                message.Response.userLogin.Userinfo.Id = (int)user.ID; //直接赋值？
-                message.Response.userLogin.Userinfo.Player = new NPlayerInfo();
-                message.Response.userLogin.Userinfo.Player.Id = user.Player.ID;
+                sender.Session.Response.userLogin.Result = Result.Success;
+                sender.Session.Response.userLogin.Errormsg = "None";
+                sender.Session.Response.userLogin.Userinfo = new NUserInfo();
+                sender.Session.Response.userLogin.Userinfo.Id = (int)user.ID; //直接赋值？
+                sender.Session.Response.userLogin.Userinfo.Player = new NPlayerInfo();
+                sender.Session.Response.userLogin.Userinfo.Player.Id = user.Player.ID;
                 foreach (var c in user.Player.Characters)
                 {
                     NCharacterInfo info = new NCharacterInfo();
@@ -165,13 +161,11 @@ namespace GameServer.Services
                     info.Name = c.Name;
                     info.Type = CharacterType.Player;
                     info.Class = (CharacterClass)c.Class;
-                    info.Tid = c.ID;                  
-                    message.Response.userLogin.Userinfo.Player.Characters.Add(info);
+                    info.Tid = c.ID;
+                    sender.Session.Response.userLogin.Userinfo.Player.Characters.Add(info);
                 }
             }
-
-            byte[] data = PackageHandler.PackMessage(message);
-            sender.SendData(data, 0, data.Length);
+            sender.SendResponse();
         }
 
         private void OnRegister(NetConnection<NetSession> sender, UserRegisterRequest request)
