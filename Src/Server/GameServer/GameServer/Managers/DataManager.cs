@@ -1,12 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using System;
+﻿using System.Collections.Generic;
 using System.IO;
-
 using Common;
 using Common.Data;
-
 using Newtonsoft.Json;
 namespace GameServer.Managers
 {
@@ -22,6 +17,8 @@ namespace GameServer.Managers
         public Dictionary<int, ShopDefine> Shops = null;
         public Dictionary<int, Dictionary<int,ShopItemDefine>> ShopItems = null;
         public Dictionary<int, EquipDefine> Equips = null;
+        public Dictionary<int, QuestDefine> Quests = null;
+        public Dictionary<int, RideDefine> Rides = null;
         public DataManager()
         {
             this.DataPath = "Data/";
@@ -50,6 +47,18 @@ namespace GameServer.Managers
 
             json = File.ReadAllText(this.DataPath + "EquipDefine.txt");
             this.Equips = JsonConvert.DeserializeObject<Dictionary<int, EquipDefine>>(json);
+
+            json = File.ReadAllText(this.DataPath + "QuestDefine.txt");
+            this.Quests = JsonConvert.DeserializeObject<Dictionary<int, QuestDefine>>(json);
+
+            json = File.ReadAllText(this.DataPath + "SpawnPointDefine.txt");
+            this.SpawnPoints = JsonConvert.DeserializeObject<Dictionary<int, Dictionary<int, SpawnPointDefine>>>(json);
+
+            json = File.ReadAllText(this.DataPath + "SpawnRuleDefine.txt");
+            this.SpawnRules = JsonConvert.DeserializeObject<Dictionary<int, Dictionary<int, SpawnRuleDefine>>>(json);
+
+            json = File.ReadAllText(this.DataPath + "RideDefine.txt");
+            this.Rides = JsonConvert.DeserializeObject<Dictionary<int, RideDefine>>(json);
         }
     }
 }

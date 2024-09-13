@@ -7,7 +7,13 @@
     "Resource": "Character/Warrior",
     "Description": "战士（Warrior），属于近战英雄，战士分为突进英雄、防御英雄、团控英雄等，防御性英雄的自带血量和防御都高，在游戏中可作为半肉半输出（既买攻击装备也买防御装备）。 团战时，可以吸收敌方英雄的伤害，又可以造成一定量的伤害。",
     "InitLevel": 1,
-    "Speed": 300
+    "Speed": 300,
+    "HP": 360.0,
+    "MP": 210.0,
+    "STR": 10.0,
+    "INT": 3.0,
+    "DEX": 5.0,
+    "CRI": 0.02
   },
   "2": {
     "TID": 2,
@@ -17,17 +23,29 @@
     "Resource": "Character/Wizard",
     "Description": "法师是游戏当中比较常见的输出职业，作为远程输出职业，有着足够的输出能力。 在游戏中法师共拥有两种形态，一种是活，另一种是冰。 不同的形态释放出的技能也是完全不同的，一般火元素有着较强的输出力和伤害力。",
     "InitLevel": 1,
-    "Speed": 300
+    "Speed": 300,
+    "HP": 300.0,
+    "MP": 390.0,
+    "STR": 3.0,
+    "INT": 10.0,
+    "DEX": 5.0,
+    "CRI": 0.02
   },
   "3": {
     "TID": 3,
-    "Name": "射手",
+    "Name": "弓箭手",
     "Type": "Normal",
     "Class": "ARCHER",
     "Resource": "Character/Archer",
     "Description": "射手，俗称ADC，英雄多为远程物理输出（普通攻击/平A）为主，远程英雄比较容易利用射程优势安全的输出，在整个团队担任重要的物理输出位置，射手类英雄的特点是输出伤害高，吃攻速，生命值低，防御低、属于脆皮类英雄，在团战中容易被敌方英雄集火先秒杀，或偷袭秒杀。",
     "InitLevel": 1,
-    "Speed": 300
+    "Speed": 300,
+    "HP": 320.0,
+    "MP": 300.0,
+    "STR": 7.0,
+    "INT": 4.0,
+    "DEX": 7.0,
+    "CRI": 0.05
   },
   "1001": {
     "TID": 1001,
@@ -35,25 +53,58 @@
     "Type": "Normal",
     "Class": "WARRIOR",
     "Resource": "Monster/M1001",
-    "InitLevel": 1,
-    "Speed": 300
+    "InitLevel": 5,
+    "Speed": 300,
+    "HP": 500.0,
+    "MP": 250.0,
+    "CRI": 0.01
   },
   "1002": {
     "TID": 1002,
-    "Name": "-",
+    "Name": "山丘巨人",
     "Type": "Normal",
-    "Class": "WIZARD",
+    "Class": "WARRIOR",
     "Resource": "Monster/M1002",
-    "InitLevel": 1,
-    "Speed": 300
+    "InitLevel": 10,
+    "Speed": 300,
+    "HP": 3000.0,
+    "MP": 500.0,
+    "CRI": 0.03
   },
   "1003": {
     "TID": 1003,
-    "Name": "-",
+    "Name": "小恶魔",
+    "Type": "Normal",
+    "Class": "WARRIOR",
+    "Resource": "Monster/M1003",
+    "InitLevel": 10,
+    "Speed": 300,
+    "HP": 2000.0,
+    "MP": 1000.0,
+    "CRI": 0.01
+  },
+  "1004": {
+    "TID": 1004,
+    "Name": "骷髅兵",
     "Type": "Normal",
     "Class": "ARCHER",
-    "Resource": "Monster/M1003",
-    "InitLevel": 1,
-    "Speed": 300
+    "Resource": "Monster/M1004",
+    "InitLevel": 10,
+    "Speed": 300,
+    "HP": 2000.0,
+    "MP": 1000.0,
+    "CRI": 0.01
+  },
+  "1005": {
+    "TID": 1005,
+    "Name": "死神",
+    "Type": "Normal",
+    "Class": "WIZARD",
+    "Resource": "Monster/M1005",
+    "InitLevel": 10,
+    "Speed": 300,
+    "HP": 20000.0,
+    "MP": 10000.0,
+    "CRI": 0.05
   }
 }

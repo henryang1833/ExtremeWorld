@@ -10,7 +10,7 @@ namespace Managers
 {
     public class ItemManager : Singleton<ItemManager>
     {
-        public Dictionary<int, Item> Items = new Dictionary<int, Item>();
+        public Dictionary<int, Item> Items = new Dictionary<int, Item>(); //角色所拥有的所有物品
         public void Init(List<NItemInfo> items)
         {
             this.Items.Clear();

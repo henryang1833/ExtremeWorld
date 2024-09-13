@@ -14,6 +14,11 @@ namespace Services
         Dictionary<StatusType, StatusNotifyHandler> eventMap = new Dictionary<StatusType, StatusNotifyHandler>();
         HashSet<StatusNotifyHandler> handlers = new HashSet<StatusNotifyHandler>();
 
+        public StatusService()
+        {
+            MessageDistributer.Instance.Subscribe<StatusNotify>(this.OnStatusNotify);
+        }
+
         public void Init()
         {
 
@@ -35,10 +40,7 @@ namespace Services
             handlers.Add(action);
         }
 
-        public StatusService()
-        {
-            MessageDistributer.Instance.Subscribe<StatusNotify>(this.OnStatusNotify);
-        }
+        
 
         private void OnStatusNotify(object sender, StatusNotify notify)
         {
@@ -53,7 +55,10 @@ namespace Services
             if(status.Type == StatusType.Money)
             {
                 if (status.Action == StatusAction.Add)
+                {
                     Models.User.Instance.AddGold(status.Value);
+
+                }
                 else if (status.Action == StatusAction.Delete)
                     Models.User.Instance.AddGold(-status.Value);
             }
@@ -61,7 +66,7 @@ namespace Services
             StatusNotifyHandler handler;
             if(eventMap.TryGetValue(status.Type,out handler))
             {
-                handler(status);
+                handler(status); 
             }
         }
 

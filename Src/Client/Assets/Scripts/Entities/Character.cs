@@ -9,6 +9,10 @@ namespace Entities
         public NCharacterInfo Info;
 
         public Common.Data.CharacterDefine Define;
+        public int Id
+        {
+            get { return this.Info.Id;}
+        }
 
         public string Name
         {
@@ -25,6 +29,16 @@ namespace Entities
         {
             get
             {
+                return this.Info.Type == CharacterType.Player;
+            }
+        }
+
+        public bool IsCurrentPlayer
+        {
+            get
+            {
+                if (!IsPlayer)
+                    return false;
                 return this.Info.Id == Models.User.Instance.CurrentCharacter.Id;
             }
         }
@@ -32,7 +46,7 @@ namespace Entities
         public Character(NCharacterInfo info) : base(info.Entity)
         {
             this.Info = info;
-            this.Define = DataManager.Instance.Characters[info.Tid];
+            this.Define = DataManager.Instance.Characters[info.ConfigId];
         }
        
 

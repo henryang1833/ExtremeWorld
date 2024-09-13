@@ -43,9 +43,12 @@ namespace Services
             {
                 if (response.Character != null)
                 {
+                    Models.User.Instance.CurrentCharacter = response.Character;
                     ItemManager.Instance.Init(response.Character.Items);
                     BagManager.Instance.Init(response.Character.Bag);
                     EquipManager.Instance.Init(response.Character.Equips);
+                    QuestManager.Instance.Init(response.Character.Quests);
+                    FriendManager.Instance.Init(response.Character.Friends);
                 }
             }
         }

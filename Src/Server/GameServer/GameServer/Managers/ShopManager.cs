@@ -20,7 +20,7 @@ namespace GameServer.Managers
                 Log.InfoFormat("BuyItem: :character:{0} : Item:{1} : Count:{2}  Price:{3}", sender.Session.Character.Id, shopItem.ItemID, shopItem.Count, shopItem.Price);
                 if (sender.Session.Character.Gold >= shopItem.Price)
                 {
-                    sender.Session.Character.itemManager.AddItem(shopItem.ItemID, shopItem.Count);
+                    sender.Session.Character.ItemManager.AddItem(shopItem.ItemID, shopItem.Count);
                     sender.Session.Character.Gold -= shopItem.Price;
                     DBService.Instance.Save();
                     return Result.Success;

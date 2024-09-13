@@ -19,7 +19,13 @@ public class UIBag : UIWindow
             for (int page = 0; page < this.pages.Length; page++)
                 slots.AddRange(this.pages[page].GetComponentsInChildren<Image>(true));
         }
+        BagManager.Instance.onBagStatusChanged += OnBagStatusChanged;
         StartCoroutine(InitBags());
+    }
+
+    private void OnBagStatusChanged()
+    {
+        RefreshUI();
     }
 
     IEnumerator InitBags()
@@ -37,6 +43,7 @@ public class UIBag : UIWindow
         }
         for (int i = BagManager.Instance.Items.Length; i < slots.Count; ++i)
             slots[i].color = Color.gray;
+        money.text = Models.User.Instance.CurrentCharacter.Gold.ToString();
         yield return null;
     }
 
@@ -64,5 +71,16 @@ public class UIBag : UIWindow
         BagManager.Instance.Reset();
         this.Clear();
         StartCoroutine(InitBags());
+    }
+
+    public void RefreshUI()
+    {
+        this.Clear();
+        StartCoroutine(InitBags());
+    }
+
+    private void OnDestroy()
+    {
+        BagManager.Instance.onBagStatusChanged -= OnBagStatusChanged;
     }
 }

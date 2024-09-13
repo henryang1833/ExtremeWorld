@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using GameServer;
+﻿using GameServer;
 using GameServer.Entities;
 using SkillBridge.Message;
 using GameServer.Services;
@@ -13,12 +7,13 @@ using GameServer.Managers;
 
 namespace Network
 {
-    class NetSession : INetSession
+    public class NetSession : INetSession
     {
         public TUser User { get; set; }
         public Character Character { get; set; }
         public NEntity Entity { get; set; }
         NetMessage response;
+        public IPostResponse PostResponser { get; set; }
         public NetMessageResponse Response
         {
             get
@@ -30,14 +25,14 @@ namespace Network
                 return response.Response;
             }
         }
+
         public byte[] GetResponse()
         {
             if(response != null)
             {
-                if(this.Character != null && this.Character.StatusManager.HasStatus)
-                {
-                    this.Character.StatusManager.ApplyResponse(Response);
-                }
+                if(PostResponser!=null)
+                    this.PostResponser.PostProcess(Response);
+                
                 byte[] data = PackageHandler.PackMessage(response);
                 response = null;
                 return data;
@@ -47,8 +42,12 @@ namespace Network
 
         internal void Disconnected()
         {
-            if(this.Character!=null)          
+            this.PostResponser = null;
+            if (this.Character != null)
+            {
+                SessionManager.Instance.RemoveSession(this.Character.Id); //自己添加的
                 UserService.Instance.CharacterLeave(this.Character);
+            }
             
         }
     }

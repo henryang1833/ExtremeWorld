@@ -1759,7 +1759,7 @@ MonoBehaviour:
   - {fileID: 1979266448030706}
   - {fileID: 1074001153666018}
   - {fileID: 1743862686505010}
-  index: -1
+  index: 0
 --- !u!114 &114783219334666866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2311,7 +2311,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &224134056619377628
 RectTransform:

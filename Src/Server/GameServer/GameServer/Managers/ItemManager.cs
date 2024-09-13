@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace GameServer.Managers
 {
-    class ItemManager
+    public class ItemManager
     {
         Character Owner;
         public Dictionary<int, Item> Items = new Dictionary<int, Item>();

@@ -2119,7 +2119,7 @@ MonoBehaviour:
   tabPages:
   - {fileID: 1475495873491996}
   - {fileID: 1807853051971378}
-  index: -1
+  index: 0
 --- !u!114 &114130053016831750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4419,7 +4419,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114170462889457442}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114568038014908992}
+        m_MethodName: OnReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114831638190809710
@@ -4865,7 +4876,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114870366583802000}
   m_HandleRect: {fileID: 224507736132575832}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.9999998
   m_Size: 0.55
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5857,7 +5868,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &224008547673341086
 RectTransform:
@@ -6298,7 +6309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000667572}
+  m_AnchoredPosition: {x: 0, y: 0.000055272394}
   m_SizeDelta: {x: 0, y: 1500}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224237730380484708

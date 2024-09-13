@@ -32,7 +32,7 @@ public class PlayerInputController : MonoBehaviour
             NCharacterInfo cinfo = new NCharacterInfo();
             cinfo.Id = 1;
             cinfo.Name = "Test";
-            cinfo.Tid = 1;
+            cinfo.ConfigId = 1;
             cinfo.Entity = new NEntity();
             cinfo.Entity.Position = new NVector3();
             cinfo.Entity.Direction = new NVector3();
@@ -50,6 +50,14 @@ public class PlayerInputController : MonoBehaviour
     {
         if (character == null)
             return;
+
+        //if (InputManager.Instance != null && InputManager.Instance.IsInputMode) return;
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Models.User.Instance.Ride(Models.User.Instance.LastRide);
+            return;
+        }
 
         float v = Input.GetAxis("Vertical");
         if (v > 0.01)
@@ -122,10 +130,10 @@ public class PlayerInputController : MonoBehaviour
         //this.transform.position = this.rb.transform.position;
     }
 
-    private void SendEntityEvent(EntityEvent entityEvent)
+    public void SendEntityEvent(EntityEvent entityEvent,int param = 0)
     {
         if (entityController != null)
-            entityController.OnEntityEvent(entityEvent);
-        MapService.Instance.SendMapEntitySync(entityEvent,this.character.EntityData);
+            entityController.OnEntityEvent(entityEvent,param);
+        MapService.Instance.SendMapEntitySync(entityEvent,this.character.EntityData,param);
     }
 }

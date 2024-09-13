@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using Models;
 public class UIMain : MonoSingleton<UIMain>
 {
     public Text avatarName;
     public Text avatarLvele;
+    public UITeam TeamWindow;
 
     protected override void OnStart()
     {
@@ -24,6 +21,7 @@ public class UIMain : MonoSingleton<UIMain>
     {
         SceneManager.Instance.LoadScene("CharSelect");
         Services.UserService.Instance.SendGameLeave();
+        TeamWindow.ShowTeam(false);
     }
 
     public void OnClickBag()
@@ -34,5 +32,25 @@ public class UIMain : MonoSingleton<UIMain>
     public void OnClickEquip()
     {
         UIManager.Instance.Show<UICharEquip>();
+    }
+
+    public void OnClickQuest()
+    {
+        UIManager.Instance.Show<UIQuestSystem>();
+    }
+
+    public void OnClickFriend()
+    {
+        UIManager.Instance.Show<UIFriends>();
+    }
+
+    public void ShowTeamUI(bool show)
+    {
+        TeamWindow.ShowTeam(show);
+    }
+
+    public void OnClickRide()
+    {
+        UIManager.Instance.Show<UIRide>();
     }
 }

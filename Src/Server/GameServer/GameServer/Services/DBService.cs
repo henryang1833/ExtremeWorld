@@ -24,10 +24,10 @@ namespace GameServer.Services
 
 
         
-        public void Save()
-        {
-            entities.SaveChangesAsync();
-        }
+        //public void Save()
+        //{
+        //    entities.SaveChangesAsync();
+        //}
 
         public void Save(bool async = false)
         {

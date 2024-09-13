@@ -4,6 +4,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using SkillBridge.Message;
+using Services;
+using UnityEngine.Events;
+
 namespace Managers
 {
     [StructLayout(LayoutKind.Sequential,Pack = 1)]
@@ -35,13 +38,14 @@ namespace Managers
         public int Unlocked;
         public BagItem[] Items;
         NBagInfo Info;
+        public UnityAction onBagStatusChanged;
 
         public unsafe void Init(NBagInfo info)
         {
             this.Info = info;
             this.Unlocked = info.Unlocked;
             Items = new BagItem[this.Unlocked];
-            if (info.Items != null && info.Items.Length >= this.Unlocked)
+            if (info.Items != null && info.Items.Length >= this.Unlocked) //todo ? 应该只等于吧，大于时啥情况
             {
                 Analyze(info.Items);
             }
@@ -85,6 +89,11 @@ namespace Managers
                     }
                 }
             }
+            //发送背包保存协议
+            BagService.Instance.SendBagSaveRequest(GetBagInfo());
+            //通知背包UI更新
+            if (onBagStatusChanged != null)
+                onBagStatusChanged();
         }
 
         //将字节数组中的内容填充到BagItem数组中
@@ -144,6 +153,8 @@ namespace Managers
                 }
                 i++;
             }
+            //发送背包保存协议
+            BagService.Instance.SendBagSaveRequest(GetBagInfo());
         }
 
     }

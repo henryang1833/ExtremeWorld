@@ -32,9 +32,9 @@ namespace Services
         private void OnMapCharacterEnter(object sender, MapCharacterEnterResponse response)
         {
             Debug.LogFormat("OnMapCharacterEnter:Map:{0} Count:{1}", response.mapId, response.Characters.Count);
-            foreach(var cha in response.Characters)
+            foreach (var cha in response.Characters)
             {
-                if (User.Instance.CurrentCharacter == null  || User.Instance.CurrentCharacter.Id == cha.Id)
+                if (User.Instance.CurrentCharacter == null || (cha.Type == CharacterType.Player && User.Instance.CurrentCharacter.Id == cha.Id))
                     User.Instance.CurrentCharacter = cha;
 
                 CharacterManager.Instance.AddCharacter(cha);
@@ -76,14 +76,14 @@ namespace Services
 
         private void OnMapCharacterLeave(object sender, MapCharacterLeaveResponse response)
         {
-            Debug.LogFormat("OnMapCharacterLeave: CharID:{0}", response.characterId);
-            if (response.characterId != User.Instance.CurrentCharacter.Id)
-                CharacterManager.Instance.RemoveCharacter(response.characterId);
+            Debug.LogFormat("OnMapCharacterLeave: CharID:{0}", response.entityId);
+            if (response.entityId != User.Instance.CurrentCharacter.EntityId)
+                CharacterManager.Instance.RemoveCharacter(response.entityId);
             else
                 CharacterManager.Instance.Clear();
         }
 
-        internal void SendMapEntitySync(EntityEvent entityEvent, NEntity entity)
+        internal void SendMapEntitySync(EntityEvent entityEvent, NEntity entity,int param)
         {
             Debug.LogFormat("MapEntityUpdateRequest: ID:{0} POS:{1} DIR:{2} SPD:{3}",entity.Id,entity.Position.String(),entity.Direction.String(),entity.Speed);
             NetMessage message = new NetMessage();
@@ -93,7 +93,8 @@ namespace Services
             {
                 Id = entity.Id,
                 Event = entityEvent,
-                Entity = entity
+                Entity = entity,
+                Param = param
             };
             NetClient.Instance.SendMessage(message);
         }

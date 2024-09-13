@@ -2,8 +2,7 @@
 using Common.Data;
 using Managers;
 using System.Collections;
-
-
+using Models;
 public class NPCController : MonoBehaviour
 {
     public int npcID;
@@ -12,6 +11,10 @@ public class NPCController : MonoBehaviour
     Color originColor;
     SkinnedMeshRenderer renderer;
     private bool inInteractive = false;
+    NpcQuestStatus questStatus;
+
+   
+
     void Start()
     {
         animator = this.gameObject.GetComponent<Animator>();
@@ -19,6 +22,25 @@ public class NPCController : MonoBehaviour
         renderer = this.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
         originColor = renderer.sharedMaterial.color;
         this.StartCoroutine(Actions());
+        RefreshNpcStatus();
+        QuestManager.Instance.onQuestStatusChanged += OnQuestStatusChanged;
+    }
+    void OnQuestStatusChanged(Quest quest)
+    {
+        this.RefreshNpcStatus();
+    }
+
+    private void RefreshNpcStatus()
+    {
+        questStatus = QuestManager.Instance.GetQuestStatusByNpc(this.npcID);
+        UIWorldElementManager.Instance.AddNpcQuestStatus(this.transform, questStatus);
+    }
+
+    private void OnDestroy()
+    {
+        QuestManager.Instance.onQuestStatusChanged -= OnQuestStatusChanged;
+        if (UIWorldElementManager.Instance != null)
+            UIWorldElementManager.Instance.RemoveNpcQuestStatus(this.transform);
     }
 
     IEnumerator Actions()
@@ -104,4 +126,6 @@ public class NPCController : MonoBehaviour
                 renderer.sharedMaterial.color = originColor;
         }
     }
+
+    
 }

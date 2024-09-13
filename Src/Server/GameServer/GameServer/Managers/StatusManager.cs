@@ -7,7 +7,7 @@ using GameServer.Entities;
 using SkillBridge.Message;
 namespace GameServer.Managers
 {
-    class StatusManager
+    public class StatusManager
     {
         Character Owner;
 
@@ -55,19 +55,16 @@ namespace GameServer.Managers
             this.AddStatus(StatusType.Item, id, count, action);
         }
         
-        internal void ApplyResponse(NetMessageResponse message)
+        internal void PostProcess(NetMessageResponse message)
         {
             if(message.statusNotify == null)
-            {
                 message.statusNotify = new StatusNotify();
-            }
+            
             foreach(var status in this.Status)
             {
                 message.statusNotify.Status.Add(status);
             }
             this.Status.Clear();
         }
-        
-
     }
 }

@@ -9,8 +9,18 @@ using GameServer.Entities;
 using Common;
 namespace GameServer.Services
 {
-    class BagService
+    class BagService : Singleton<BagService>
     {
+        public void Init()
+        {
+
+        }
+
+        public BagService()
+        {
+            MessageDistributer<NetConnection<NetSession>>.Instance.Subscribe<BagSaveRequest>(this.OnBagSave);   
+        }
+
         void OnBagSave(NetConnection<NetSession> sender, BagSaveRequest request)
         {
             Character character = sender.Session.Character;
