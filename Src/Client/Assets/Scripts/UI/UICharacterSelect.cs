@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using SkillBridge.Message;
 using Models;
 using Services;
+using Managers;
 
 public class UICharacterSelect : MonoBehaviour {
     public GameObject panelSelect;
@@ -89,6 +90,7 @@ public class UICharacterSelect : MonoBehaviour {
         }
 
         descsText.text = DataManager.Instance.Characters[charClass].Description;
+        SoundManager.Instance.PlaySound(SoundDefine.SFX_UI_Click);
     }
 
     public void OnSelectCharacter(int idx)
@@ -104,10 +106,12 @@ public class UICharacterSelect : MonoBehaviour {
             UICharInfo ci = this.uiChars[i].GetComponent<UICharInfo>();
             ci.Selected = idx == i;
         }
+        SoundManager.Instance.PlaySound(SoundDefine.SFX_UI_Click);
     }
 
     public void OnClickPlay()
     {
+        SoundManager.Instance.PlaySound(SoundDefine.SFX_UI_Click);
         if (selectCharacterIdx >= 0)
         {      
             UserService.Instance.SendGameEnter(selectCharacterIdx); //是不是应该再加一
@@ -121,6 +125,7 @@ public class UICharacterSelect : MonoBehaviour {
             MessageBox.Show("请输入角色名称");
             return;
         }
+        SoundManager.Instance.PlaySound(SoundDefine.SFX_UI_Click);
         UserService.Instance.SendCharacterCreate(this.charName.text, this.charClass);
     }
 

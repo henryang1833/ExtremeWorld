@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using System;
+using Managers;
 
 public class UIMessageBox : MonoBehaviour {
     public Text title;
@@ -33,15 +33,24 @@ public class UIMessageBox : MonoBehaviour {
 
         this.buttonYes.onClick.AddListener(OnClickYes);
         this.buttonNo.onClick.AddListener(OnClickNo);
+
+        this.buttonNo.gameObject.SetActive(type == MessageBoxType.Confirm);
+
+        if (type == MessageBoxType.Error)
+            SoundManager.Instance.PlaySound(SoundDefine.SFX_Message_Error);
+        else
+            SoundManager.Instance.PlaySound(SoundDefine.SFX_Message_Info);
     }
 
     private void OnClickYes()
     {
+        SoundManager.Instance.PlaySound(SoundDefine.SFX_UI_Confirm);
         Destroy(this.gameObject);
         if (this.OnYes != null) this.OnYes();
     }
     private void OnClickNo()
     {
+        SoundManager.Instance.PlaySound(SoundDefine.SFX_UI_Win_Close);
         Destroy(this.gameObject);
         if (this.OnNo != null) this.OnNo();
     }

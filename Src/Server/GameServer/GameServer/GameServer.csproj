@@ -145,6 +145,7 @@
     <Compile Include="Services\BagService.cs" />
     <Compile Include="Services\DBService.cs" />
     <Compile Include="Services\FriendService.cs" />
+    <Compile Include="Services\GuildService.cs" />
     <Compile Include="Services\ItemService.cs" />
     <Compile Include="Services\MapService.cs" />
     <Compile Include="Services\QuestService.cs" />
@@ -167,6 +168,15 @@
     <Compile Include="TCharacterQuest.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Compile Include="TGuild.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TGuildApply.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TGuildMember.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TPlayer.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -174,6 +184,7 @@
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils\Time.cs" />
+    <Compile Include="Utils\TimeUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

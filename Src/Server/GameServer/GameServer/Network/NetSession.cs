@@ -12,29 +12,30 @@ namespace Network
         public TUser User { get; set; }
         public Character Character { get; set; }
         public NEntity Entity { get; set; }
-        NetMessage response;
         public IPostResponse PostResponser { get; set; }
+
+        private NetMessage _pendingNetMessage;
         public NetMessageResponse Response
         {
             get
             {
-                if (response == null)
-                    response = new NetMessage();
-                if (response.Response == null)
-                    response.Response = new NetMessageResponse();
-                return response.Response;
+                if (_pendingNetMessage == null)
+                    _pendingNetMessage = new NetMessage();
+                if (_pendingNetMessage.Response == null)
+                    _pendingNetMessage.Response = new NetMessageResponse();
+                return _pendingNetMessage.Response;
             }
         }
 
         public byte[] GetResponse()
         {
-            if(response != null)
+            if(_pendingNetMessage != null)
             {
                 if(PostResponser!=null)
                     this.PostResponser.PostProcess(Response);
                 
-                byte[] data = PackageHandler.PackMessage(response);
-                response = null;
+                byte[] data = PackageHandler.PackMessage(_pendingNetMessage);
+                _pendingNetMessage = null;
                 return data;
             }
             return null;

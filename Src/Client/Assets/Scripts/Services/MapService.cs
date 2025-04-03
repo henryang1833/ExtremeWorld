@@ -54,6 +54,7 @@ namespace Services
                 MapDefine map = DataManager.Instance.Maps[mapId];
                 User.Instance.CurrentMapData = map;
                 SceneManager.Instance.LoadScene(map.Resource);
+                SoundManager.Instance.PlayMusic(map.Music);
             }
             else
                 Debug.LogFormat("EnterMap:Map {0} not existed", mapId);

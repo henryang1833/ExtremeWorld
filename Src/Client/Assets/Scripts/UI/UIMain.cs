@@ -53,4 +53,23 @@ public class UIMain : MonoSingleton<UIMain>
     {
         UIManager.Instance.Show<UIRide>();
     }
+
+    public void OnClickMenu()
+    {
+        UIManager.Instance.Show<UIMenu>();
+    }
+
+    public void OnClickGuild()
+    {
+        GuildManager.Instance.ShowGuild();
+    }
+
+    public void OnClickSetting()
+    {
+    }
+
+    public void OnClickSkill()
+    {
+
+    }
 }

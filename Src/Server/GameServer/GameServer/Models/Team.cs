@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GameServer.Entities;
 using SkillBridge.Message;
 using Common;
@@ -17,7 +14,7 @@ namespace GameServer.Models
 
         public List<Character> Members = new List<Character>();
 
-        public int timestamp;
+        public int timestamp; //通过时间戳来标记队伍是否发生变化
 
         public Team(Character leader)
         {

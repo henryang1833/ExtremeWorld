@@ -67,6 +67,7 @@ public class ListView : MonoBehaviour
             }
         }
 
+        //todo: 好像没用到
         //更换选中状态UI显示
         public virtual void onSelected(bool selected)
         {

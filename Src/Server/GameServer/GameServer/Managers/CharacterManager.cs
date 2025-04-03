@@ -4,21 +4,16 @@ using GameServer.Entities;
 using SkillBridge.Message;
 namespace GameServer.Managers
 {
-    class CharacterManager: Singleton<CharacterManager>
+    /// <summary>
+    /// 维护所有在线的角色信息
+    /// </summary>
+    public class CharacterManager: Singleton<CharacterManager>
     {
         public Dictionary<int, Character> Characters = new Dictionary<int, Character>();
 
-        public CharacterManager()
-        {
+        public void Clear() => this.Characters.Clear();
 
-        }
-
-        public void Clear()
-        {
-            this.Characters.Clear();
-        }
-
-        public  Character AddCharacter(TCharacter cha)
+        public Character AddCharacter(TCharacter cha)
         {
             Character character = new Character(CharacterType.Player,cha);
             EntityManager.Instance.AddEntity(cha.MapID, character);//?

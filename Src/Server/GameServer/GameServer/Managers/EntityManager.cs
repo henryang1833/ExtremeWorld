@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Common;
 using GameServer.Entities;
 namespace GameServer.Managers
@@ -12,7 +8,6 @@ namespace GameServer.Managers
         private int idx = 0;
         public List<Entity> AllEntites = new List<Entity>();
         public Dictionary<int, List<Entity>> MapEntities = new Dictionary<int, List<Entity>>();
-
 
         public void AddEntity(int mapId, Entity entity)
         {
@@ -26,7 +21,6 @@ namespace GameServer.Managers
                 entities = new List<Entity>();
                 MapEntities[mapId] = entities;
             }
-
             entities.Add(entity);
         }
 

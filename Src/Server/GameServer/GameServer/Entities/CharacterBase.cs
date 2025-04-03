@@ -2,17 +2,11 @@
 using GameServer.Core;
 using GameServer.Managers;
 using SkillBridge.Message;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameServer.Entities
 {
     public class CharacterBase : Entity
     {
-
         public int Id { get; set; }
         public NCharacterInfo Info;
         public CharacterDefine Define;

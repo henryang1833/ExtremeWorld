@@ -7,7 +7,7 @@ class InputBox
     {
         if(cacheObject == null)
         {
-            cacheObject = Resloader.Load<Object>("UI/UIInputBox");
+            cacheObject = Resloader.Load<Object>("UI/Input/UIInputBox");
         }
 
         GameObject go = (GameObject)GameObject.Instantiate(cacheObject);

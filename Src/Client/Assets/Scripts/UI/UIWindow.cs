@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Managers;
 using UnityEngine;
 
 public abstract class UIWindow : MonoBehaviour
@@ -17,6 +16,7 @@ public abstract class UIWindow : MonoBehaviour
 
     public void Close(WindowResult result = WindowResult.None)
     {
+        SoundManager.Instance.PlaySound(SoundDefine.SFX_UI_Win_Close);
         UIManager.Instance.Close(this.Type);
         if (this.OnClose != null)
             this.OnClose(this, result);

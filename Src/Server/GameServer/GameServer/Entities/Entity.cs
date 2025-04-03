@@ -1,10 +1,5 @@
 ﻿using GameServer.Core;
 using SkillBridge.Message;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameServer.Entities
 {
@@ -15,9 +10,7 @@ namespace GameServer.Entities
             get { return this.entityData.Id; }
         }
 
-
         private Vector3Int position;
-
         public Vector3Int Position
         {
             get { return position; }
@@ -71,10 +64,11 @@ namespace GameServer.Entities
             this.SetEntityData(this.entityData);
         }
 
-        public Entity(NEntity entity)
-        {
-            this.entityData = entity;
-        }
+        //todo: 好像没用到
+        //public Entity(NEntity entity)
+        //{
+        //    this.entityData = entity;
+        //}
 
         public void SetEntityData(NEntity entity)
         {

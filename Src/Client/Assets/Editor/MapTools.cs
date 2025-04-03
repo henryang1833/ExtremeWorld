@@ -19,7 +19,7 @@ public class MapTools : MonoBehaviour
             return;
         }
          
-        List<Teleporte> allTeleporters = new List<Teleporte>();
+        //todo List<Teleporte> allTeleporters = new List<Teleporte>(); 好像没有用到
         foreach(var map in DataManager.Instance.Maps)
         {
             string sceneFile = "Assets/Levels/" + map.Value.Resource + ".unity";

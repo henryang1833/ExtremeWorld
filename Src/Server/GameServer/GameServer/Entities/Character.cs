@@ -2,7 +2,6 @@
 using SkillBridge.Message;
 using GameServer.Network;
 using GameServer.Models;
-using System;
 using Common;
 
 namespace GameServer.Entities
@@ -14,8 +13,11 @@ namespace GameServer.Entities
         public QuestManager QuestManager;
         public StatusManager StatusManager;
         public FriendManager FriendManager;
+        public GuildManager GuildManager;
         public Team Team;
-        public int TeamUpdateTS;
+        public double TeamUpdateTS;
+        public Guild Guild;
+        public double GuildUpdateTS;
 
         public Character(CharacterType type, TCharacter cha) :
             base(new Core.Vector3Int(cha.MapPosX, cha.MapPosY, cha.MapPosZ), new Core.Vector3Int(100, 0,  0))
@@ -25,28 +27,30 @@ namespace GameServer.Entities
             this.Info = new NCharacterInfo();
             this.Info.Type = type;
             this.Info.Id = cha.ID;
-            this.Info.EntityId = this.entityId;
+            this.Info.entityId = this.entityId;
             this.Info.Name = cha.Name;
             this.Info.Level = 10;//cha.Level;
-            this.Info.ConfigId = cha.TID;
+            this.Info.configId = cha.TID;
             this.Info.Class = (CharacterClass)cha.Class;
             this.Info.mapId = cha.MapID;
             this.Info.Gold = cha.Gold;
             this.Info.Ride = 0;
             this.Info.Entity = this.EntityData;
-            this.Define = DataManager.Instance.Characters[this.Info.ConfigId];
+            this.Define = DataManager.Instance.Characters[this.Info.configId];
 
             ItemManager = new ItemManager(this);
-            this.ItemManager.GetItemInfos(this.Info.Items);
-            this.Info.Bag = new NBagInfo();
-            this.Info.Bag.Unlocked = this.Data.Bag.Unlocked;
-            this.Info.Bag.Items = this.Data.Bag.Items;
+            this.ItemManager.GetItemInfos(this.Info.itemInfos);
+            this.Info.bagInfo = new NBagInfo();
+            this.Info.bagInfo.Unlocked = this.Data.Bag.Unlocked;
+            this.Info.bagInfo.Items = this.Data.Bag.Items;
             this.Info.Equips = this.Data.Equips;
             this.QuestManager = new QuestManager(this);
-            this.QuestManager.GetQuestInfos(this.Info.Quests);
+            this.QuestManager.GetQuestInfos(this.Info.questInfos);
             this.StatusManager = new StatusManager(this);
             this.FriendManager = new FriendManager(this);
-            this.FriendManager.GetFriendInfos(this.Info.Friends);
+            this.FriendManager.GetFriendInfos(this.Info.friendInfos);
+
+            //this.GuildManager = GuildManager.Instance.GetGuild(this.Data.GuildId);
         }
 
         public long Gold
@@ -71,6 +75,10 @@ namespace GameServer.Entities
             }
         }
 
+        /// <summary>
+        /// 就是在发送消息的时候如果检测到好友、队伍、公会、物品有变化也一并处理，没有变化的不处理
+        /// </summary>
+        /// <param name="message"></param>
         public void PostProcess(NetMessageResponse message)
         {
             if(this.Team!=null)

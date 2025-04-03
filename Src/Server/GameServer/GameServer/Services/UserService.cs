@@ -41,14 +41,18 @@ namespace GameServer.Services
             TCharacter dbchar = sender.Session.User.Player.Characters.ElementAt(request.characterIdx);
             Log.InfoFormat("UserGameEnterRequest: characterID:{0}:{1} Map:{2}", dbchar.ID, dbchar.Name, dbchar.MapID);
             Character character = CharacterManager.Instance.AddCharacter(dbchar);
+
             SessionManager.Instance.AddSession(character.Id, sender);
             sender.Session.Response.gameEnter = new UserGameEnterResponse();
             sender.Session.Response.gameEnter.Result = Result.Success;
             sender.Session.Response.gameEnter.Errormsg = "None";
-            sender.Session.Response.gameEnter.Character = character.Info;
-            sender.SendResponse();
+
             sender.Session.Character = character;
             sender.Session.PostResponser = character;
+
+            sender.Session.Response.gameEnter.Character = character.Info;
+            sender.SendResponse();
+            
             MapManager.Instance[dbchar.MapID].CharacterEnter(sender, character);
         }
 

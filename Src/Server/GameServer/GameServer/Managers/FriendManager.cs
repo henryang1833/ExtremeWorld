@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Common;
 using GameServer.Entities;
@@ -76,7 +75,7 @@ namespace GameServer.Managers
             var character = CharacterManager.Instance.GetCharacter(friend.FriendID);
             friendInfo.friendInfo = new NCharacterInfo();
             friendInfo.Id = friend.Id;
-            if(character == null) 
+            if(character == null)  //不在线
             {
                 friendInfo.friendInfo.Id = friend.FriendID;
                 friendInfo.friendInfo.Name = friend.FriendName;
@@ -84,7 +83,7 @@ namespace GameServer.Managers
                 friendInfo.friendInfo.Level = friend.Level;
                 friendInfo.Status = 0;
             }
-            else
+            else //在线
             {
                 friendInfo.friendInfo = character.GetBasicInfo();
                 friendInfo.friendInfo.Name = character.Info.Name;
